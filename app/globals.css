@@ -1,26 +1,83 @@
+html {
+  scroll-behavior: smooth;
+}
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-background: var(--bg-color);
+  --color-foreground: var(--fg-color);
+  --color-border-subtle: color-mix(in srgb, var(--fg-color) 10%, transparent);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-glow: light-dark(rgba(254, 240, 138, 0.6), rgba(251, 146, 60, 0.6));
+  --color-outglow: light-dark(rgba(254, 249, 195, 0.4), rgba(251, 230, 102, 0.2));
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+
+  html,
+  body,
+  a,
+  button {
+    cursor: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='3' fill='%23facc15'/%3E%3C/svg%3E") 8 8, auto;
+    /* cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='5' fill='%23facc15'/%3E%3C/svg%3E") 12 12, auto; */
+    /* cursor: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='6' fill='%23facc15'/%3E%3C/svg%3E") 6 6, auto; */
+  }
+
+  :root {
+    --bg-color: #fffcf5;
+    --fg-color: #464038;
+    --glow-color: rgba(254, 240, 138, 0.6);
+    --outglow-color: rgba(254, 240, 138, 0.4);
+  }
+
+  .dark {
+    --bg-color: #1A1A1A;
+    --fg-color: #FAFAFA;
+    --glow-color: rgba(251, 146, 60, 0.6);
+    --outglow-color: rgba(251, 146, 60, 0.4);
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: var(--animate-marquee);
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .luckiest-guy-regular {
+    font-family: var(--font-luckiest-guy), cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
 }

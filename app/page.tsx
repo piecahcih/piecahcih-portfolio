@@ -1,65 +1,318 @@
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ProjectCard } from "@/components/project-card";
+import { projects } from "@/lib/data";
 import Image from "next/image";
+import { DownloadIcon } from "@/icons";
+import Typewriter from "@/components/typewriter";
+
+const springConfig = {
+  type: "spring",
+  stiffness: 300,
+  damping: 20,
+  mass: 1,
+} as const;
 
 export default function Home() {
+  const { scrollY } = useScroll();
+  const heroOpacity = useTransform(scrollY, [0, 800], [1, 0]);
+  const heroTranslationY = useTransform(scrollY, [0, 800], [0, -100]);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="min-h-screen bg-background text-foreground selection:bg-foreground/20">
+
+      <div className="mx-auto">
+        {/* HERO SECTION */}
+        <motion.section style={{ opacity: heroOpacity, y: heroTranslationY }}
+          className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden z-0">
+          <div className="ml-55">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ...springConfig, delay: 0.1 }}
+              className="flex items-center gap-3"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <span className="text-[18px] font-medium tracking-widest text-foreground/60">
+                Hi! I'm
+              </span>
+            </motion.div>
+
+            <div
+              className="relative group cursor-none"
+              style={{ "--x": "-1000px", "--y": "-1000px" } as React.CSSProperties}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                e.currentTarget.style.setProperty("--x", `${x}px`);
+                e.currentTarget.style.setProperty("--y", `${y}px`);
+              }}
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+              {/* Base Layer: Full Name */}
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ...springConfig, delay: 0.2 }}
+                data-expand-cursor
+                className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter my-2 max-w-4xl text-foreground"
+              >
+                Pichayapa Thaisedhawatkul
+              </motion.h1>
+
+              {/* Spotlight Layer: PEACH */}
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ...springConfig, delay: 0.2 }}
+                className="absolute -inset-2 text-[238px] luckiest-guy-regular tracking-wider leading-[0.88] max-w-4xl pointer-events-none select-none -z-10"
+                style={{
+                  maskImage: 'radial-gradient(circle 130px at var(--x) var(--y), black 100%, transparent 100%)',
+                  WebkitMaskImage: 'radial-gradient(circle 130px at var(--x) var(--y), black 100%, transparent 100%)',
+                }}
+              >
+                <span className="text-red-500/40">P</span>
+                <span className="text-yellow-500/40">E</span>
+                <span className="text-green-500/40">A</span>
+                <span className="text-blue-500/40">C</span>
+                <span className="text-purple-500/40">H</span>
+              </motion.h1>
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ...springConfig, delay: 0.3 }}
+              className="text-[24px] md:text-[32px] text-foreground/60 max-w-2xl font-light leading-relaxed"
+            >
+              I'm a <Typewriter texts={[
+                "Full-Stack Developer",
+                "UX/UI Designer",
+                "Junior Architect"
+              ]} />
+              {/* Junior Design Engineer bridging the gap between Full-Stack Development and UX/UI Design. Crafting enterprise-grade code with an editorial aesthetic. */}
+            </motion.p>
+          </div>
+
+        </motion.section>
+
+        {/* ABOUT SECTION */}
+        <section id="about" className="relative z-10 w-screen h-screen mb-40 bg-background px-24 scroll-mt-24 border-y-2 border-white/40
+            dark:shadow-[0_-35px_35px_-5px_rgba(251,146,60,0.08),0_-2px_25px_-5px_rgba(251,146,60,0.5),0_20px_25px_-5px_rgba(251,146,60,0.2),inset_0_0_2px_1px_rgba(251,146,60,0.1)]
+           shadow-[0_-30px_25px_-5px_rgba(0,0,0,0.03),0_20px_25px_-5px_rgba(0,0,0,0.04),inset_0_0_2px_1px_rgba(255,255,255,0.05)]">
+          {/* shadow-[0_-30px_20px_-15px_rgba(0,0,0,0.02),0_-15px_20px_-5px_rgba(0,0,0,0.03)]"> */}
+
+          <Image
+            src="/assets/polycarbonate-6194281dac837-1200.jpg"
+            alt="Background concept"
+            fill
+            className="object-cover object-center opacity-15 -z-1"
+          />
+          <Image
+            src="/assets/polycarbonate2.jpg"
+            alt="polycarbonate2"
+            fill
+            className="object-cover object-center opacity-19 -z-5"
+          />
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-12 pt-10"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            About Me
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ ...springConfig }}
+              className="md:col-span-5"
+            >
+              <h3 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6 leading-snug">
+                From structural architecture to digital experiences.
+              </h3>
+              <p className="text-foreground/60 leading-relaxed font-light mb-6">
+                With a foundation in Architecture from Chulalongkorn University and ENSAV in France, my journey into technology is driven by a passion for building robust, human-centered systems.
+              </p>
+              <motion.div
+                initial="initial"
+                whileHover="hover"
+                data-hide-cursor
+                className="relative mt-9 w-[350px] h-[450px] overflow-hidden cursor-none"
+              >
+                <div
+                  className="absolute inset-0 z-0 opacity-25 dark:opacity-12"
+                  style={{ background: 'radial-gradient(circle at center, var(--glow-color) 0%, var(--outglow-color) 30%, transparent 100%)' }}
+                // style={{ background: 'radial-gradient(circle at center, rgba(254, 240, 138, 0.6) 0%, rgba(254, 249, 195, 0.4) 50%, transparent 100%)' }}
+                />
+
+                <motion.div
+                  variants={{
+                    initial: { opacity: 0, scale: 1.1 },
+                    hover: { opacity: 1, scale: 1 }
+                  }}
+                  transition={{ duration: 0.4, ease: "circOut" }}
+                  className="w-full h-full"
+                >
+                  <Image
+                    src="/assets/profile.jpg"
+                    alt="Profile"
+                    fill
+                    className="object-cover object-center"
+                  />
+                </motion.div>
+              </motion.div>
+              {/* <Image
+                src="/assets/profile.jpg"
+                alt="Profile"
+                width={350}
+                height={350}
+                className="object-cover object-center"
+              /> */}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ ...springConfig, delay: 0.1 }}
+              className="md:col-span-6 md:col-start-7"
+            >
+              <div className="space-y-8">
+                {/* Education */}
+                <div>
+                  <h4 className="text-sm font-medium text-foreground mb-4 border-b border-foreground/10 pb-2">Education & Journey</h4>
+                  <ul className="space-y-4 text-sm font-light text-foreground/60">
+                    <li className="flex justify-between items-start">
+                      <span>CodeCamp Fullstack Developer #22</span>
+                      <span className="text-foreground/40 text-right">2026 - Present</span>
+                    </li>
+                    <li className="flex justify-between items-start">
+                      <span>Chulalongkorn University <br /><span className="text-xs text-foreground/40">Bachelor of Architecture</span></span>
+                      <span className="text-foreground/40 text-right">Bangkok</span>
+                    </li>
+                    <li className="flex justify-between items-start">
+                      <span>ENSAV <br /><span className="text-xs text-foreground/40">Exchange Program</span></span>
+                      <span className="text-foreground/40 text-right">France</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Experience & Certifications */}
+                <div>
+                  <h4 className="text-sm font-medium text-foreground mb-4 border-b border-foreground/10 pb-2">Experience & Certs</h4>
+                  <ul className="space-y-4 text-sm font-light text-foreground/60">
+                    <li className="flex justify-between items-start">
+                      <span>Architectural Intern <br /><span className="text-xs text-foreground/40">K2LD Singapore</span></span>
+                      <span className="text-foreground/40 text-right">2024</span>
+                    </li>
+                    <li className="flex justify-between items-start">
+                      <span>Google UX Design Professional Cert.</span>
+                    </li>
+                    <li className="flex justify-between items-start">
+                      <span>Google Digital Marketing & E-commerce</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* SELECTED WORKS - INFINITE HORIZONTAL MARQUEE */}
+        <section className="mb-40 overflow-hidden">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-12 px-24"
           >
-            Documentation
-          </a>
-        </div>
-      </main>
+            Selected Works
+          </motion.h2>
+
+          <div className="relative flex">
+            {/* The Marquee Container */}
+            <div
+              className="flex gap-6 whitespace-nowrap animate-marquee"
+            >
+              {/* Render projects twice for seamless loop */}
+              {[...projects, ...projects].map((project, idx) => (
+                <div
+                  key={`${project.id}-${idx}`}
+                  className="w-[450px] flex-shrink-0"
+                >
+                  <ProjectCard project={project} />
+                </div>
+              ))}
+            </div>
+
+            {/* Gradient Fades for Editorial look */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-70 bg-gradient-to-r from-background to-transparent z-20" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-70 bg-gradient-to-l from-background to-transparent z-20" />
+          </div>
+        </section>
+
+        {/* TECHNICAL DEPTH SECTION */}
+        <section className="mb-24 px-24">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-12"
+          >
+            Technical Depth
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {[
+              {
+                category: "Frontend",
+                skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+                description: "Creating highly interactive, accessible, and performant user interfaces with an obsession for micro-interactions."
+              },
+              {
+                category: "Backend",
+                skills: ["Node.js", ".NET", "PostgreSQL", "GraphQL", "Redis"],
+                description: "Architecting robust, strictly typed APIs and microservices designed for high concurrency and low latency."
+              },
+              {
+                category: "Infrastructure",
+                skills: ["Docker", "Cloudflare", "AWS", "CI/CD", "Linux"],
+                description: "Deploying and scaling distributed systems with a focus on zero-downtime and high availability."
+              }
+            ].map((stack, idx) => (
+              <motion.div
+                key={stack.category}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ ...springConfig, delay: idx * 0.15 }}
+                className="group"
+              >
+                <div className="mb-6 pb-6 border-b border-foreground/10 group-hover:border-foreground/30 transition-colors duration-500">
+                  <h3 className="text-xl font-medium text-foreground mb-4">{stack.category}</h3>
+                  <p className="text-sm text-foreground/60 leading-relaxed font-light">
+                    {stack.description}
+                  </p>
+                </div>
+                <ul className="flex flex-wrap gap-2">
+                  {stack.skills.map((skill) => (
+                    <li
+                      key={skill}
+                      className="px-3 py-1.5 rounded-md bg-foreground/5 border border-foreground/5 text-xs font-medium text-foreground/70 backdrop-blur-sm"
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
