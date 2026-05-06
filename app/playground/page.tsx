@@ -19,6 +19,9 @@ export default function Playground() {
                     <motion.div className="bg-yellow-500 w-[1200px]">
                         Mock
                     </motion.div>
+                    <motion.div className="bg-yellow-500 w-[1200px]">
+                        Mock
+                    </motion.div>
 
                 </section>
 
