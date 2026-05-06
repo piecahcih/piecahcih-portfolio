@@ -65,7 +65,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ ...springConfig, delay: 0.2 }}
-                className="absolute -inset-2 text-[238px] luckiest-guy-regular tracking-wider leading-[0.88] max-w-4xl pointer-events-none select-none -z-10"
+                className="absolute -inset-2 text-[127px] md:text-[180px] lg:text-[238px] luckiest-guy-regular tracking-wider leading-[0.88] max-w-4xl pointer-events-none select-none -z-10"
                 style={{
                   maskImage: 'radial-gradient(circle 130px at var(--x) var(--y), black 100%, transparent 100%)',
                   WebkitMaskImage: 'radial-gradient(circle 130px at var(--x) var(--y), black 100%, transparent 100%)',
@@ -98,7 +98,7 @@ export default function Home() {
 
         {/* ABOUT SECTION */}
         <section id="about" className="relative z-10 w-screen h-screen mb-40 bg-background px-24 scroll-mt-24 border-y-2 border-white/40
-            dark:shadow-[0_-35px_35px_-5px_rgba(251,146,60,0.08),0_-2px_25px_-5px_rgba(251,146,60,0.5),0_20px_25px_-5px_rgba(251,146,60,0.2),inset_0_0_2px_1px_rgba(251,146,60,0.1)]
+            dark:shadow-[0_-35px_35px_-5px_rgba(251,146,60,0.04),0_-2px_25px_-5px_rgba(251,146,60,0.5),0_20px_25px_-5px_rgba(251,146,60,0.2),inset_0_0_2px_1px_rgba(251,146,60,0.1)]
            shadow-[0_-30px_25px_-5px_rgba(0,0,0,0.03),0_20px_25px_-5px_rgba(0,0,0,0.04),inset_0_0_2px_1px_rgba(255,255,255,0.05)]">
           {/* shadow-[0_-30px_20px_-15px_rgba(0,0,0,0.02),0_-15px_20px_-5px_rgba(0,0,0,0.03)]"> */}
 
