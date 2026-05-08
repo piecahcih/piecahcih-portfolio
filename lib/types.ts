@@ -15,6 +15,7 @@ export interface ProjectData {
   description: string;
   technicalChallenge: string;
   imageUrl: string;
+  link?: string;
   liveUrl?: string;
   repoUrl?: string;
   stack: TechStackItem[];

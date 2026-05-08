@@ -16,6 +16,7 @@ export const projects: ProjectData[] = [
       { name: "Adobe Photoshop", category: "Software", icon: Layout },
     ],
     layoutConfig: { colSpan: 8, rowSpan: 2 }, // Takes up 8/12 cols
+    link: "https://online.fliphtml5.com/wbrna/rral/",
   },
   {
     id: "pichngo",
@@ -29,7 +30,8 @@ export const projects: ProjectData[] = [
       { name: "Node.js", category: "Backend", icon: Server },
       { name: "PostgreSQL", category: "Backend", icon: Database },
     ],
-    layoutConfig: { colSpan: 8, rowSpan: 2 }, // Takes up 8/12 cols
+    layoutConfig: { colSpan: 8, rowSpan: 2 },
+    link: 'https://pichngo-frontend.vercel.app/'
   },
   {
     id: "onlyfriendssss",
@@ -43,6 +45,7 @@ export const projects: ProjectData[] = [
       { name: "Cloudflare", category: "Infrastructure", icon: Cloud },
     ],
     layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
+    link: "https://www.youtube.com/watch?v=TGgcC5xg9YI&list=RDTGgcC5xg9YI&start_radio=1",
   },
   {
     id: "mynd",
@@ -56,5 +59,6 @@ export const projects: ProjectData[] = [
       { name: "TypeScript", category: "Frontend", icon: Layout },
     ],
     layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
+    link: "https://www.youtube.com/watch?v=TGgcC5xg9YI&list=RDTGgcC5xg9YI&start_radio=1",
   },
 ];
