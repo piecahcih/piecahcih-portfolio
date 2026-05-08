@@ -7,6 +7,8 @@ import { ArrowUpRight } from "lucide-react";
 import clsx, { ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+import Link from "next/link";
+
 // Utility for class merging
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -19,6 +21,7 @@ interface ProjectCardProps {
 
 export function ProjectCardGB({ project, className }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const projectLink = project.link || project.liveUrl;
 
   // Physics-based spring config: Low damping for premium, heavy feel
   const springConfig = {
@@ -28,7 +31,7 @@ export function ProjectCardGB({ project, className }: ProjectCardProps) {
     mass: 1,
   } as const;
 
-  return (
+  const cardContent = (
     <motion.div
       className={cn(
         "relative overflow-hidden rounded-[3px] group flex flex-col justify-end p-8",
@@ -37,12 +40,13 @@ export function ProjectCardGB({ project, className }: ProjectCardProps) {
         "dark:shadow-[1px_1px_10px_2px_rgba(251,146,60,0.5),_0px_0px_62px_10px_rgba(226,113,133,0.2)]",
         // "dark:shadow-[7px_3px_15px_2px_rgba(251,146,60,0.4),_7px_3px_50px_10px_rgba(251,113,133,0.15)]",
         "dark:border border-foreground/40",
-        "h-[360px] w-[360px] cursor-pointer",
+        "h-[360px] w-[360px]",
+        projectLink ? "cursor-pointer" : "cursor-default",
         className
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      whileHover={{ scale: 0.98 }}
+      whileHover={projectLink ? { scale: 0.98 } : {}}
       transition={springConfig}
     >
       {/* Background Image / Gradient */}
@@ -131,4 +135,18 @@ export function ProjectCardGB({ project, className }: ProjectCardProps) {
       </div>
     </motion.div>
   );
+
+  if (projectLink) {
+    return (
+      <Link
+        href={projectLink}
+        target={projectLink.startsWith("http") ? "_blank" : undefined}
+        rel={projectLink.startsWith("http") ? "noopener noreferrer" : undefined}
+      >
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return cardContent;
 }
