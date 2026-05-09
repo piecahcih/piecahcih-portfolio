@@ -1,11 +1,13 @@
 "use client";
 
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/lib/data";
 import Image from "next/image";
 import { DownloadIcon } from "@/icons";
 import Typewriter from "@/components/typewriter";
+import { technicalDepth } from "@/lib/technicalDepth";
 
 const springConfig = {
   type: "spring",
@@ -18,6 +20,14 @@ export default function Home() {
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 800], [1, 0]);
   const heroTranslationY = useTransform(scrollY, [0, 800], [0, -100]);
+
+  const revealRef = useRef(null);
+  const { scrollYProgress: revealProgress } = useScroll({
+    target: revealRef,
+    offset: ["start end", "end start"]
+  });
+
+  const technicalDepthOpacity = useTransform(revealProgress, [0.5, 0.7], [0, 1]);
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-foreground/20">
@@ -97,7 +107,7 @@ export default function Home() {
         </motion.section>
 
         {/* ABOUT SECTION */}
-        <section id="about" className="relative z-10 w-screen h-screen mb-40 bg-background px-24 scroll-mt-24 border-y-2 border-white/40
+        <section id="about" className="relative z-20 w-screen h-screen bg-background px-24 scroll-mt-24 border-y-2 border-white/40
             dark:shadow-[0_-35px_35px_-5px_rgba(251,146,60,0.04),0_-2px_25px_-5px_rgba(251,146,60,0.5),0_20px_25px_-5px_rgba(251,146,60,0.2),inset_0_0_2px_1px_rgba(251,146,60,0.1)]
            shadow-[0_-30px_25px_-5px_rgba(0,0,0,0.03),0_20px_25px_-5px_rgba(0,0,0,0.04),inset_0_0_2px_1px_rgba(255,255,255,0.05)]">
           {/* shadow-[0_-30px_20px_-15px_rgba(0,0,0,0.02),0_-15px_20px_-5px_rgba(0,0,0,0.03)]"> */}
@@ -223,7 +233,7 @@ export default function Home() {
         </section>
 
         {/* SELECTED WORKS - INFINITE HORIZONTAL MARQUEE */}
-        <section className="mb-40 overflow-hidden">
+        {/* <section className="mb-40 overflow-hidden">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -234,11 +244,9 @@ export default function Home() {
           </motion.h2>
 
           <div className="relative flex">
-            {/* The Marquee Container */}
             <div
               className="flex gap-6 whitespace-nowrap animate-marquee"
             >
-              {/* Render projects twice for seamless loop */}
               {[...projects, ...projects].map((project, idx) => (
                 <div
                   key={`${project.id}-${idx}`}
@@ -249,69 +257,90 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Gradient Fades for Editorial look */}
             <div className="pointer-events-none absolute inset-y-0 left-0 w-70 bg-gradient-to-r from-background to-transparent z-20" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-70 bg-gradient-to-l from-background to-transparent z-20" />
           </div>
-        </section>
+        </section> */}
 
-        {/* TECHNICAL DEPTH SECTION */}
-        <section className="mb-24 px-24">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-12"
-          >
-            Technical Depth
-          </motion.h2>
+        {/* TECHNICAL DEPTH REVEAL CONTAINER */}
+        <motion.div
+          ref={revealRef}
+          style={{ opacity: technicalDepthOpacity }}
+          className="relative z-10 -mt-[100vh] h-[200vh]">
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              {
-                category: "Frontend",
-                skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-                description: "Creating highly interactive, accessible, and performant user interfaces with an obsession for micro-interactions."
-              },
-              {
-                category: "Backend",
-                skills: ["Node.js", ".NET", "PostgreSQL", "GraphQL", "Redis"],
-                description: "Architecting robust, strictly typed APIs and microservices designed for high concurrency and low latency."
-              },
-              {
-                category: "Infrastructure",
-                skills: ["Docker", "Cloudflare", "AWS", "CI/CD", "Linux"],
-                description: "Deploying and scaling distributed systems with a focus on zero-downtime and high availability."
-              }
-            ].map((stack, idx) => (
-              <motion.div
-                key={stack.category}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ ...springConfig, delay: idx * 0.15 }}
-                className="group"
+          <section className="sticky top-0 h-screen px-24 flex flex-col justify-center bg-background">
+
+            {/* SELECTED WORKS - INFINITE HORIZONTAL MARQUEE */}
+            <section className="mb-20 overflow-hidden">
+              <motion.h2
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-12 px-24"
               >
-                <div className="mb-6 pb-6 border-b border-foreground/10 group-hover:border-foreground/30 transition-colors duration-500">
-                  <h3 className="text-xl font-medium text-foreground mb-4">{stack.category}</h3>
-                  <p className="text-sm text-foreground/60 leading-relaxed font-light">
-                    {stack.description}
-                  </p>
-                </div>
-                <ul className="flex flex-wrap gap-2">
-                  {stack.skills.map((skill) => (
-                    <li
-                      key={skill}
-                      className="px-3 py-1.5 rounded-md bg-foreground/5 border border-foreground/5 text-xs font-medium text-foreground/70 backdrop-blur-sm"
+                Selected Works
+              </motion.h2>
+
+              <div className="relative flex">
+                <div
+                  className="flex gap-6 whitespace-nowrap animate-marquee"
+                >
+                  {[...projects, ...projects].map((project, idx) => (
+                    <div
+                      key={`${project.id}-${idx}`}
+                      className="w-[450px] flex-shrink-0"
                     >
-                      {skill}
-                    </li>
+                      <ProjectCard project={project} />
+                    </div>
                   ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+                </div>
+
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-70 bg-gradient-to-r from-background to-transparent z-20" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-70 bg-gradient-to-l from-background to-transparent z-20" />
+              </div>
+            </section>
+
+            <motion.h2
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-12"
+            >
+              Technical Depth
+            </motion.h2>
+
+            {/* <div className="grid grid-cols-1 md:grid-cols-5 gap-12 w-[138vw]"> */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {technicalDepth.map((stack, idx) => (
+                <motion.div
+                  key={stack.category}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ ...springConfig, delay: idx * 0.15 }}
+                  className="group"
+                >
+                  <div className="mb-6 pb-6 border-b border-foreground/10 group-hover:border-foreground/30 transition-colors duration-500">
+                    <h3 className="text-xl font-medium text-foreground mb-4">{stack.category}</h3>
+                    {/* <p className="text-sm text-foreground/60 leading-relaxed font-light">
+                      {stack.description}
+                    </p> */}
+                  </div>
+                  <ul className="flex flex-wrap gap-2">
+                    {stack.skills.map((skill) => (
+                      <li
+                        key={skill.name}
+                        className="px-3 py-1.5 rounded-md bg-foreground/5 border border-foreground/5 text-xs font-medium text-foreground/70 backdrop-blur-sm"
+                      >
+                        {skill.name}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+        </motion.div>
       </div>
     </div>
   );

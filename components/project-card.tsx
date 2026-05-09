@@ -34,7 +34,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         "relative overflow-hidden group flex flex-col justify-end p-8",
         "bg-background text-foreground",
         "border border-foreground/10 backdrop-blur-md hover:border-yellow-500/60 hover:bg-yellow-500/10", // Glassmorphism
-        "min-h-[300px] cursor-pointer",
+        "h-[28vh] cursor-pointer",
         className
       )}
       onMouseEnter={() => setIsHovered(true)}

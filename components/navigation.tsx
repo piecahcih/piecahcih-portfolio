@@ -93,7 +93,9 @@ export function Navigation() {
         })}
 
         <div className="w-px h-4 bg-foreground/10 mx-1" />
-        <ThemeToggle />
+        <div className="pr-1.5">
+          <ThemeToggle />
+        </div>
       </div>
     </nav>
   );

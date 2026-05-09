@@ -31,3 +31,13 @@ export interface YouTubeTrack {
   duration: number; // Parsed duration in seconds
   thumbnailUrl: string;
 }
+
+export interface Tools {
+  name: string;
+  icon?: ElementType;
+}
+
+export interface TechnicalDepth {
+  category: string;
+  skills: Tools[];
+}
