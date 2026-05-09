@@ -316,7 +316,7 @@ export default function Home() {
                   key={stack.category}
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, margin: "-50px" }}
+                  viewport={{ once: true, margin: "-50px", amount: 0.8 }}
                   transition={{ ...springConfig, delay: idx * 0.15 }}
                   className="group"
                 >
