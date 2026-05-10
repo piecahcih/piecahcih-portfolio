@@ -34,10 +34,12 @@ export interface YouTubeTrack {
 
 export interface Tools {
   name: string;
-  icon?: ElementType;
+  icon?: ElementType | string; // ElementType for React components, string for image URLs (e.g. SimpleIcons CDN)
+  color?: string; // Optional brand color for hover effects
 }
 
 export interface TechnicalDepth {
   category: string;
+  description?: string;
   skills: Tools[];
 }

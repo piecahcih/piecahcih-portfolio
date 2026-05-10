@@ -1,6 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import TextMorphAnimation from "@/components/text-morph-animation/text-morph";
+
+const springConfig = {
+    type: "spring",
+    stiffness: 300,
+    damping: 20,
+    mass: 1,
+} as const;
 
 export default function Playground() {
     return (
@@ -19,8 +27,17 @@ export default function Playground() {
                     <motion.div className="bg-yellow-500 w-[1200px]">
                         Mock
                     </motion.div>
-                    <motion.div className="bg-yellow-500 w-[1200px]">
-                        Mock
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ ...springConfig, delay: 0.3 }}
+                        className="text-[60px] md:text-[80px] font-light leading-relaxed text-center luckiest-guy-regular"
+                    >
+                        <TextMorphAnimation texts={[
+                            "Hello",
+                            "สวัสดี",
+                            "Welcome to my playground"
+                        ]} />
                     </motion.div>
 
                 </section>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Luckiest_Guy } from "next/font/google";
+import { Geist, Geist_Mono, Luckiest_Guy, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { MusicModal } from "@/components/music-modal";
@@ -9,7 +9,10 @@ import { CVIcon, GitHubIcon, InstagramIcon, LinkedInIcon } from "@/icons";
 import { SocialLink } from "@/components/link";
 import CustomCursor from "@/components/cursor";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { ScrollToTop } from "@/components/scroll-to-top";
 
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +38,8 @@ export const metadata: Metadata = {
   description: "Pichayapa Thaisedhawatkul (PEACH) | Portfolio",
 };
 
+
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -45,7 +50,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${luckiestGuy.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, luckiestGuy.variable, "font-sans", inter.variable)}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
@@ -55,6 +60,7 @@ export default async function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <ScrollToTop />
           <CustomCursor />
           <header>
             <div className="fixed top-10 left-8 z-50">
@@ -74,8 +80,8 @@ export default async function RootLayout({
           <main>
             {children}
           </main>
-          <footer className="fixed bottom-5 flex justify-between px-6 w-full items-end z-50">
-            <div className="flex flex-col gap-4 items-center">
+          <footer className="fixed bottom-5 flex justify-between px-6 w-full items-end z-50 pointer-events-none">
+            <div className="flex flex-col gap-4 items-center pointer-events-auto">
               <SocialLink
                 href="/assets/Resume.pdf"
                 icon={CVIcon}
@@ -98,7 +104,7 @@ export default async function RootLayout({
               />
               <div className="w-[2px] h-26 bg-foreground/20 -mb-6" />
             </div>
-            <p className="-rotate-270 pb-46 fixed bottom-5 right-5 font-light">pichayapa.thai@gmail.com</p>
+            <p className="-rotate-270 pb-46 fixed bottom-5 right-5 font-light pointer-events-auto">pichayapa.thai@gmail.com</p>
           </footer>
           <MusicModal tracks={tracks} />
         </ThemeProvider>
