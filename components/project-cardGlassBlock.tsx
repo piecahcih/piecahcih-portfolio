@@ -34,7 +34,7 @@ export function ProjectCardGB({ project, className }: ProjectCardProps) {
   const cardContent = (
     <motion.div
       className={cn(
-        "relative overflow-hidden rounded-[3px] group flex flex-col justify-end p-8",
+        "relative rounded-[3px] group flex flex-col justify-end p-8",
         "bg-background text-foreground backdrop-blur-md",
         "shadow-[7px_3px_4px_1px_rgba(135,_127,_122,_0.5)]",
         "dark:shadow-[1px_1px_10px_2px_rgba(251,146,60,0.5),_0px_0px_62px_10px_rgba(226,113,133,0.2)]",
@@ -73,20 +73,19 @@ export function ProjectCardGB({ project, className }: ProjectCardProps) {
       {/* Card Content */}
       <div className="relative z-20 flex flex-col h-full justify-end">
         {/* Editorial Default State */}
-        <div className="mb-2">
+        <div className="mb-2 absolute -bottom-26 -left-7 group-hover:opacity-0">
+          <motion.h3
+            layout="position"
+            className="text-[18px] font-light tracking-tight text-foreground"
+          >
+            {project.title}
+          </motion.h3>
           <motion.p
             layout="position"
-            className="text-xs font-medium tracking-[0.2em] text-foreground/60 uppercase mb-3"
+            className="text-[9px] font-medium tracking-[0.2em] text-foreground/60 uppercase"
           >
             {project.subtitle}
           </motion.p>
-          <motion.h3
-            layout="position"
-            className="text-3xl font-light tracking-tight text-foreground flex items-center gap-3"
-          >
-            {project.title}
-            <ArrowUpRight className="w-5 h-5 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500 ease-out" />
-          </motion.h3>
         </div>
 
         {/* Hover State: Technical Challenge & Stack (AnimatePresence for smooth reveal) */}
@@ -99,6 +98,21 @@ export function ProjectCardGB({ project, className }: ProjectCardProps) {
               transition={springConfig}
               className="overflow-hidden"
             >
+              <div className="mb-2">
+                <motion.p
+                  layout="position"
+                  className="text-xs font-medium tracking-[0.2em] text-foreground/60 uppercase mb-3"
+                >
+                  {project.subtitle}
+                </motion.p>
+                <motion.h3
+                  layout="position"
+                  className="text-3xl font-light tracking-tight text-foreground flex items-center gap-3"
+                >
+                  {project.title}
+                  <ArrowUpRight className="w-5 h-5 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500 ease-out" />
+                </motion.h3>
+              </div>
               <div className="pt-6 mt-4 border-t border-foreground/10 flex flex-col gap-5">
                 <div>
                   <span className="text-[10px] font-semibold text-foreground/40 uppercase tracking-widest block mb-2">

@@ -47,18 +47,18 @@ export const projects: ProjectData[] = [
     layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
     link: "https://www.youtube.com/watch?v=TGgcC5xg9YI&list=RDTGgcC5xg9YI&start_radio=1",
   },
-  // {
-  //   id: "mynd",
-  //   title: "Mynd",
-  //   subtitle: "Tracking System",
-  //   description: "A headless CMS built for editorial teams with strict typing.",
-  //   technicalChallenge: "Engineered a strictly typed GraphQL API with .NET, allowing robust querying while maintaining a sub-100ms response time globally.",
-  //   imageUrl: "https://i.pinimg.com/webp80/736x/6c/48/ed/6c48ed0af2475884a33be1a5595c5315.webp",
-  //   stack: [
-  //     { name: ".NET", category: "Backend", icon: Code2 },
-  //     { name: "TypeScript", category: "Frontend", icon: Layout },
-  //   ],
-  //   layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
-  //   link: "https://www.youtube.com/watch?v=TGgcC5xg9YI&list=RDTGgcC5xg9YI&start_radio=1",
-  // },
+  {
+    id: "mynd",
+    title: "Mynd",
+    subtitle: "Tracking System",
+    description: "A headless CMS built for editorial teams with strict typing.",
+    technicalChallenge: "Engineered a strictly typed GraphQL API with .NET, allowing robust querying while maintaining a sub-100ms response time globally.",
+    imageUrl: "https://i.pinimg.com/webp80/736x/6c/48/ed/6c48ed0af2475884a33be1a5595c5315.webp",
+    stack: [
+      { name: ".NET", category: "Backend", icon: Code2 },
+      { name: "TypeScript", category: "Frontend", icon: Layout },
+    ],
+    layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
+    link: "https://www.youtube.com/watch?v=TGgcC5xg9YI&list=RDTGgcC5xg9YI&start_radio=1",
+  },
 ];
