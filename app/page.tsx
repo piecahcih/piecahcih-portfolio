@@ -8,6 +8,7 @@ import { DownloadIcon } from "@/icons";
 import Typewriter from "@/components/homepage/typewriter";
 import { technicalDepth } from "@/lib/technicalDepth";
 import { MagneticSkillTag } from "@/components/homepage/magnetic-skill-tag";
+import { useLoading } from "@/context/loading-context";
 
 
 const springConfig = {
@@ -18,6 +19,7 @@ const springConfig = {
 } as const;
 
 export default function Home() {
+  const { isFinished } = useLoading();
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 800], [1, 0]);
   const heroTranslationY = useTransform(scrollY, [0, 800], [0, -100]);
@@ -32,7 +34,7 @@ export default function Home() {
           <div className="ml-55">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ ...springConfig, delay: 0.1 }}
               className="flex items-center gap-3"
             >
@@ -55,7 +57,7 @@ export default function Home() {
               {/* Base Layer: Full Name */}
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={isFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ ...springConfig, delay: 0.2 }}
                 data-expand-cursor
                 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter my-2 max-w-4xl text-foreground"
@@ -66,7 +68,7 @@ export default function Home() {
               {/* Spotlight Layer: PEACH */}
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={isFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ ...springConfig, delay: 0.2 }}
                 className="absolute -inset-2 text-[127px] md:text-[180px] lg:text-[238px] luckiest-guy-regular tracking-wider leading-[0.88] max-w-4xl pointer-events-none select-none -z-10"
                 style={{
@@ -84,14 +86,15 @@ export default function Home() {
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ ...springConfig, delay: 0.3 }}
               className="text-[24px] md:text-[32px] text-foreground/60 max-w-2xl font-light leading-relaxed"
             >
               I'm a <Typewriter texts={[
                 "Full-Stack Developer",
                 "UX/UI Designer",
-                "Junior Architect"
+                "Junior Architect",
+                "Traveller"
               ]} />
             </motion.div>
           </div>

@@ -50,7 +50,8 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm font-medium border border-foreground/20 px-6 py-3 rounded-full hover:bg-foreground hover:text-background transition-colors"
+                                data-hide-cursor
+                                className="inline-flex items-center gap-2 text-sm font-medium border border-foreground/20 px-6 py-3 rounded-full hover:bg-yellow-500/80 hover:text-background transition-colors"
                             >
                                 Visit Project <ArrowUpRight className="w-4 h-4" />
                             </a>
@@ -63,16 +64,14 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
                         className="lg:col-span-3 lg:col-start-7 md:col-span-3 md:col-start-7 flex flex-col gap-4 pb-2"
                     >
                         <h3 className="text-xs font-semibold tracking-widest text-foreground/40 uppercase">STACK & TOOLS</h3>
-                        <div className="flex flex-col gap-3">
+                        <div className="flex flex-wrap gap-3">
                             {project.stack.map((tech) => {
-                                const Icon = tech.icon;
                                 return (
                                     <div
                                         key={tech.name}
-                                        className="flex items-center gap-3 px-5 py-3 rounded-xl border border-foreground/10 bg-foreground/5 backdrop-blur-md transition-colors hover:bg-foreground/10 hover:border-foreground/20"
+                                        className="text-sm font-medium w-fit flex items-center gap-3 px-3 py-1 rounded-xl border border-foreground/10 bg-foreground/5 backdrop-blur-md transition-colors hover:bg-foreground/10 hover:border-foreground/20"
                                     >
-                                        <Icon className="w-5 h-5 text-foreground/70" />
-                                        <span className="text-sm font-medium">{tech.name}</span>
+                                        {tech.name}
                                     </div>
                                 );
                             })}
@@ -86,6 +85,7 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
                     >
                         <h3 className="text-xs font-semibold tracking-widest text-foreground/40 uppercase">DESCRIPTION</h3>
                         <p className="text-sm text-foreground/80 leading-relaxed font-light">{project.description}</p>
+                        <p className="text-sm text-foreground/80 leading-relaxed font-light">{project.technicalChallenge}</p>
                     </motion.div>
                 </div>
 
@@ -98,7 +98,7 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
                         className="relative w-full h-[600px] overflow-hidden mb-20 border border-foreground/10 bg-foreground/5"
                     >
                         <img
-                            src={project.imageUrl}
+                            src={project.imageUrl[0]}
                             alt={project.title}
                             className="w-full h-full object-cover"
                         />
@@ -112,7 +112,7 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
                         className="relative w-full h-[400px] aspect-[21/9] md:aspect-[16/7] overflow-hidden mb-20 border border-foreground/10 bg-foreground/5"
                     >
                         <img
-                            src={project.imageUrl}
+                            src={project.imageUrl[1]}
                             alt={project.title}
                             className="w-full h-full object-cover"
                         />

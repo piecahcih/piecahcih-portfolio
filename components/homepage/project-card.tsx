@@ -48,7 +48,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         {/* Background Image / Gradient */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center opacity-40 z-0 transition-opacity duration-700 ease-out group-hover:opacity-20"
-          style={{ backgroundImage: `url(${project.imageUrl})` }}
+          style={{ backgroundImage: `url(${project.imageUrl[0]})` }}
         />
 
         {/* Gradient Overlay for Editorial readability */}
@@ -86,31 +86,11 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                 <div className="pt-6 mt-4 border-t border-foreground/10 flex flex-col gap-5">
                   <div>
                     <span className="text-[10px] font-semibold text-foreground/40 uppercase tracking-widest block mb-2">
-                      Technical Challenge
+                      Overview
                     </span>
                     <p className="text-sm text-foreground/80 leading-relaxed font-light">
-                      {project.technicalChallenge}
+                      {project.description}
                     </p>
-                  </div>
-
-                  {/* Tech Stack Icons Staggered Entrance */}
-                  <div className="flex gap-2 items-center">
-                    {project.stack.map((tech, idx) => {
-                      const Icon = tech.icon;
-                      return (
-                        <motion.div
-                          key={tech.name}
-                          initial={{ opacity: 0, scale: 0.8, y: 10 }}
-                          animate={{ opacity: 1, scale: 1, y: 0 }}
-                          exit={{ opacity: 0, scale: 0.8, y: 10 }}
-                          transition={{ delay: idx * 0.05, ...springConfig }}
-                          className="p-2.5 rounded-lg bg-foreground/5 border border-foreground/10 backdrop-blur-md"
-                          title={tech.name}
-                        >
-                          <Icon className="w-4 h-4 text-foreground/90" />
-                        </motion.div>
-                      );
-                    })}
                   </div>
                 </div>
               </motion.div>

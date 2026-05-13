@@ -1,11 +1,11 @@
 import { ElementType } from "react";
 
-export type TechCategory = "Frontend" | "Backend" | "Infrastructure" | "Design" | "Software";
+export type TechCategory = "Frontend" | "Backend" | "Infrastructure" | "Design" | "Software" | "Payment" | "Tools" | "Real-time" | "Map" | "Auth" | "AI-powered";
 
 export interface TechStackItem {
   name: string;
   category: TechCategory;
-  icon: ElementType; // Expecting a React component (e.g., from lucide-react)
+  icon?: ElementType; // Expecting a React component (e.g., from lucide-react)
 }
 
 export interface ProjectData {
@@ -14,7 +14,7 @@ export interface ProjectData {
   subtitle: string;
   description: string;
   technicalChallenge: string;
-  imageUrl: string;
+  imageUrl: string[];
   link?: string;
   liveUrl?: string;
   repoUrl?: string;
