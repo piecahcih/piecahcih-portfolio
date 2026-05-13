@@ -152,11 +152,7 @@ export function ProjectCardGB({ project, className }: ProjectCardProps) {
 
   if (projectLink) {
     return (
-      <Link
-        href={projectLink}
-        target={projectLink.startsWith("http") ? "_blank" : undefined}
-        rel={projectLink.startsWith("http") ? "noopener noreferrer" : undefined}
-      >
+      <Link href={`/work/${project.id}`}>
         {cardContent}
       </Link>
     );

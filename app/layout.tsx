@@ -8,8 +8,7 @@ import { Navigation } from "@/components/navigation";
 import { CVIcon, GitHubIcon, InstagramIcon, LinkedInIcon } from "@/icons";
 import { SocialLink } from "@/components/link";
 import CustomCursor from "@/components/cursor";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
+
 import { ScrollToTop } from "@/components/scroll-to-top";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
@@ -50,7 +49,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, luckiestGuy.variable, "font-sans", inter.variable)}
+      className={`h-full antialiased ${geistSans.variable} ${geistMono.variable} ${luckiestGuy.variable} font-sans ${inter.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
@@ -63,18 +62,6 @@ export default async function RootLayout({
           <ScrollToTop />
           <CustomCursor />
           <header>
-            <div className="fixed top-10 left-8 z-50">
-              <div className="absolute inset-x-[-30px] inset-y-[-15px] -z-10 
-                  backdrop-blur-xl bg-white/[0.01] rounded-full
-                  [mask-image:radial-gradient(ellipse,black_10%,transparent_70%)]" />
-
-              <Link href="/"
-                data-hide-cursor
-                className="font-light tracking-[0.2em] cursor-pointer hover:text-yellow-500"
-              >
-                PIECAHCIH
-              </Link>
-            </div>
             <Navigation />
           </header>
           <main>
@@ -104,7 +91,7 @@ export default async function RootLayout({
               />
               <div className="w-[2px] h-26 bg-foreground/20 -mb-6" />
             </div>
-            <p className="-rotate-270 pb-46 fixed bottom-5 right-5 font-light pointer-events-auto">pichayapa.thai@gmail.com</p>
+            <p className="-rotate-270 pb-46 fixed bottom-5 right-5 font-light pointer-events-none">pichayapa.thai@gmail.com</p>
           </footer>
           <MusicModal tracks={tracks} />
         </ThemeProvider>

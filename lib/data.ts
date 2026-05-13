@@ -22,16 +22,16 @@ export const projects: ProjectData[] = [
     id: "pichngo",
     title: "Pich & Go",
     subtitle: "Hotel Booking Platform",
-    description: "A high-performance banking dashboard with real-time updates.",
-    technicalChallenge: "Orchestrated WebSockets with a custom Node.js microservice architecture to handle high-frequency trading data, reducing latency to < 50ms.",
+    description: "A Thailand-based hotel booking platform that covers the full hotel booking journey from browsing and booking to payment and post-stay reviews, with additional features including a favourites system and a loyalty rewards program.",
+    technicalChallenge: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
     imageUrl: "https://res.cloudinary.com/piecahcih/image/upload/v1778002833/Screenshot_2026-05-06_003957_v8gn9f.png",
     stack: [
       { name: "React", category: "Frontend", icon: Layout },
       { name: "Node.js", category: "Backend", icon: Server },
-      { name: "PostgreSQL", category: "Backend", icon: Database },
+      { name: "MySQL", category: "Backend", icon: Database },
     ],
     layoutConfig: { colSpan: 8, rowSpan: 2 },
-    link: 'https://pichngo-frontend.vercel.app/'
+    link: 'https://pichngo.vercel.app/'
   },
   {
     id: "onlyfriendssss",
