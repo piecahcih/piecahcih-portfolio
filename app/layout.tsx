@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Luckiest_Guy, Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { MusicModal } from "@/components/music-modal";
+import { ThemeProvider } from "@/components/navtheme/theme-provider";
+import { MusicModal } from "@/components/musiccard/music-modal";
 import { fetchRandomizedPlaylist } from "@/lib/youtube";
-import { Navigation } from "@/components/navigation";
+import { Navigation } from "@/components/navtheme/navigation";
 import { CVIcon, GitHubIcon, InstagramIcon, LinkedInIcon } from "@/icons";
 import { SocialLink } from "@/components/link";
 import CustomCursor from "@/components/cursor";
 
 import { ScrollToTop } from "@/components/scroll-to-top";
+import { Preloader } from "@/components/preloader";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -59,6 +60,7 @@ export default async function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <Preloader />
           <ScrollToTop />
           <CustomCursor />
           <header>

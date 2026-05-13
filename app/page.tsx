@@ -1,19 +1,19 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ProjectCard } from "@/components/project-card";
+import { ProjectCard } from "@/components/homepage/project-card";
 import { projects } from "@/lib/data";
 import Image from "next/image";
 import { DownloadIcon } from "@/icons";
-import Typewriter from "@/components/typewriter";
+import Typewriter from "@/components/homepage/typewriter";
 import { technicalDepth } from "@/lib/technicalDepth";
-import { MagneticSkillTag } from "@/components/magnetic-skill-tag";
+import { MagneticSkillTag } from "@/components/homepage/magnetic-skill-tag";
 
 
 const springConfig = {
   type: "spring",
-  stiffness: 300,
-  damping: 20,
+  stiffness: 100,
+  damping: 30,
   mass: 1,
 } as const;
 
@@ -99,7 +99,7 @@ export default function Home() {
         </motion.section>
 
         {/* ABOUT SECTION */}
-        <section id="about" className="relative z-10 w-screen h-screen mb-40 bg-background px-24 scroll-mt-24 border-y-2 border-white/40
+        <section id="about" className="relative z-10 w-screen h-screen mb-16 md:mb-40 bg-background px-6 md:px-12 xl:px-24 scroll-mt-24 border-y-2 border-white/40
             dark:shadow-[0_-35px_35px_-5px_rgba(251,146,60,0.04),0_-2px_25px_-5px_rgba(251,146,60,0.5),0_20px_25px_-5px_rgba(251,146,60,0.2),inset_0_0_2px_1px_rgba(251,146,60,0.1)]
            shadow-[0_-30px_25px_-5px_rgba(0,0,0,0.03),0_20px_25px_-5px_rgba(0,0,0,0.04),inset_0_0_2px_1px_rgba(255,255,255,0.05)]">
           {/* shadow-[0_-30px_20px_-15px_rgba(0,0,0,0.02),0_-15px_20px_-5px_rgba(0,0,0,0.03)]"> */}
@@ -129,7 +129,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ ...springConfig }}
               className="md:col-span-5"
             >
@@ -225,12 +225,12 @@ export default function Home() {
         </section>
 
         {/* SELECTED WORKS - INFINITE HORIZONTAL MARQUEE */}
-        <section className="mb-40 overflow-hidden">
+        <section className="mb-16 md:mb-40 overflow-hidden">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-12 px-24"
+            className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-8 md:mb-12 px-6 md:px-12 xl:px-24"
           >
             Selected Works
           </motion.h2>
@@ -258,22 +258,22 @@ export default function Home() {
         </section>
 
         {/* TECHNICAL DEPTH SECTION */}
-        <section className="mb-24 px-24">
+        <section className="mb-16 md:mb-24 px-6 md:px-12 xl:px-24">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-12"
+            className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-8 md:mb-12"
           >
             My Tech Stack
           </motion.h2>
 
           {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-12"> */}
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-12">
             {technicalDepth.map((stack, idx) => (
               <motion.div
                 key={stack.category}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ ...springConfig, delay: idx * 0.15 }}
@@ -285,7 +285,7 @@ export default function Home() {
                     {stack.description}
                   </p>
                 </div>
-                <ul data-hide-cursor className="flex flex-wrap gap-4 justify-center">
+                <ul data-hide-cursor className="flex flex-wrap gap-3 md:gap-4 justify-center">
                   {stack.skills.map((skill) => (
                     <MagneticSkillTag key={skill.name} skill={skill} />
                   ))}

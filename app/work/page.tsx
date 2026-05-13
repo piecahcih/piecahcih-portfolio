@@ -6,8 +6,8 @@ import { ProjectCardGB } from "@/components/project-cardGlassBlock";
 
 const springConfig = {
     type: "spring",
-    stiffness: 300,
-    damping: 20,
+    stiffness: 100,
+    damping: 30,
     mass: 1,
 } as const;
 

@@ -23,7 +23,7 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
     }
 
     return (
-        <main className="min-h-screen bg-background text-foreground pt-32 pb-20 px-6 md:px-12 lg:px-24">
+        <main className="min-h-screen bg-background text-foreground pt-32 pb-20 px-18 md:px-20 lg:px-24">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -37,8 +37,8 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
                 </Link>
 
                 {/* Header */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
-                    <div className="lg:col-span-5">
+                <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-6 mb-16">
+                    <div className="md:col-span-6 lg:col-span-5">
                         <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground">
                             {project.title}
                         </h1>
@@ -60,7 +60,7 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="lg:col-span-3 lg:col-start-7 flex flex-col gap-4 pb-2"
+                        className="lg:col-span-3 lg:col-start-7 md:col-span-3 md:col-start-7 flex flex-col gap-4 pb-2"
                     >
                         <h3 className="text-xs font-semibold tracking-widest text-foreground/40 uppercase">STACK & TOOLS</h3>
                         <div className="flex flex-col gap-3">
@@ -82,7 +82,7 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="lg:col-span-3 lg:col-start-10 flex flex-col gap-4 pb-2"
+                        className="lg:col-span-3 lg:col-start-10 md:col-span-3 md:col-start-10 flex flex-col gap-4 pb-2"
                     >
                         <h3 className="text-xs font-semibold tracking-widest text-foreground/40 uppercase">DESCRIPTION</h3>
                         <p className="text-sm text-foreground/80 leading-relaxed font-light">{project.description}</p>
