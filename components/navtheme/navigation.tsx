@@ -82,7 +82,7 @@ export function Navigation() {
   const borderRadius = useTransform(smoothScrollY, [0, SCROLL_END], [0, 50]);
 
   // Horizontal padding: spacious → compact
-  const paddingX = useTransform(smoothScrollY, [0, SCROLL_END], [28, 36]);
+  const paddingX = useTransform(smoothScrollY, [0, SCROLL_END], [28, 19]);
 
   // Vertical padding: thin top-bar feel → compact pill feel
   const paddingY = useTransform(smoothScrollY, [0, SCROLL_END], [24, 12]);
@@ -140,7 +140,7 @@ export function Navigation() {
           <Link
             href="/"
             data-hide-cursor
-            className="font-light tracking-[0.2em] text-foreground hover:text-yellow-500 transition-colors duration-300"
+            className="font-light tracking-[0.2em] ml-3 text-foreground hover:text-yellow-500 transition-colors duration-300"
             tabIndex={-1}
           >
             PIECAHCIH

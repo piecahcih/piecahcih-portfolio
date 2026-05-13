@@ -9,18 +9,23 @@ export function Preloader() {
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [displayLetter, setDisplayLetter] = useState("");
+  const [showScrollbar, setShowScrollbar] = useState(false);
 
   // Handle scroll lock
   useEffect(() => {
-    if (isLoading) {
+    if (!showScrollbar) {
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
+
     return () => {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
-  }, [isLoading]);
+  }, [showScrollbar]);
 
   // Handle progress counting
   useEffect(() => {
@@ -58,7 +63,7 @@ export function Preloader() {
   const roundedProgress = Math.floor(progress);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={() => setShowScrollbar(true)}>
       {isLoading && (
         <motion.div
           initial={{ opacity: 1 }}
@@ -72,48 +77,32 @@ export function Preloader() {
           }}
           className="fixed inset-0 z-800 flex flex-col items-center justify-center bg-background text-foreground selection:bg-background selection:text-foreground"
         >
-          {/* Noise overlay for texture */}
-          {/* <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" /> */}
 
-          <div className="relative flex flex-col items-center">
-            <div className="flex items-center gap-8 md:gap-16">
-              {/* The flickering letters */}
-              <div className="h-40 w-40 flex items-center justify-center">
-                <motion.span
-                  key={displayLetter}
-                  initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                  transition={{ duration: 0.1, ease: "easeOut" }}
-                  className="text-8xl md:text-[12rem] font-bold tracking-tighter leading-none"
-                >
-                  {displayLetter}
-                </motion.span>
-              </div>
 
-              {/* Progress counter to the right */}
-              <div className="flex items-baseline gap-1">
-                <span className="text-xl font-light tracking-tighter tabular-nums">
-                  {roundedProgress.toString().padStart(2, '0')}
-                </span>
-                <span className="text-xl font-light opacity-50">%</span>
-              </div>
-            </div>
 
-            {/* Letter sequence hint under the letters */}
-            {/* <div className="mt-12 flex flex-col items-center gap-2">
-              <div className="flex gap-2">
-                {targetLetters.map((l, i) => (
-                  <span
-                    key={i}
-                    className={`text-[12px] md:text-sm font-mono transition-all duration-300 ${i <= Math.floor((progress / 100) * targetLetters.length) ? 'opacity-100 scale-110 font-bold' : 'opacity-20 scale-100'
-                      }`}
-                  >
-                    {l}
-                  </span>
-                ))}
-              </div>
-            </div> */}
+
+          {/* The flickering letters */}
+          <div className="h-40 w-40 flex items-center justify-center">
+            <motion.span
+              key={displayLetter}
+              initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+              transition={{ duration: 0.1, ease: "easeOut" }}
+              className="text-8xl md:text-[12rem] font-bold tracking-tighter leading-none"
+            >
+              {displayLetter}
+            </motion.span>
           </div>
+
+
+          {/* Progress counter at bottom right */}
+          <div className="absolute bottom-8 right-8 flex items-end gap-1">
+            <span className="text-xl font-light tracking-tighter tabular-nums">
+              {roundedProgress.toString().padStart(2, '0')}
+            </span>
+            <span className="text-xl font-light opacity-50">%</span>
+          </div>
+
 
           {/* Subtle vignette */}
           <div className="absolute inset-0 bg-radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%) pointer-events-none" />

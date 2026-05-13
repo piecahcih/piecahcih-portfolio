@@ -1,7 +1,3 @@
-html {
-  scroll-behavior: smooth;
-}
-
 @import "tailwindcss";
 
 @import "tw-animate-css";
@@ -108,6 +104,11 @@ html {
   --radius-4xl: calc(var(--radius) * 2.6)
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 @layer base {
 
   html,
@@ -115,8 +116,6 @@ html {
   a,
   button {
     cursor: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='3' fill='%23facc15'/%3E%3C/svg%3E") 8 8, auto;
-    /* cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='5' fill='%23facc15'/%3E%3C/svg%3E") 12 12, auto; */
-    /* cursor: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='6' fill='%23facc15'/%3E%3C/svg%3E") 6 6, auto; */
   }
 
   :root {
@@ -142,12 +141,15 @@ html {
     overflow-x: hidden;
     @apply bg-background text-foreground;
   }
+
   * {
     @apply border-border outline-ring/50;
   }
+
   html {
     @apply font-sans;
   }
+
 }
 
 @layer utilities {
