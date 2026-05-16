@@ -61,7 +61,7 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="lg:col-span-3 lg:col-start-7 md:col-span-3 md:col-start-7 flex flex-col gap-4 pb-2"
+                        className="lg:col-span-3 lg:col-start-7 md:col-span-3 md:col-start-7 flex flex-col gap-4 pb-2 max-w-60"
                     >
                         <h3 className="text-xs font-semibold tracking-widest text-foreground/40 uppercase">STACK & TOOLS</h3>
                         <div className="flex flex-wrap gap-3">
@@ -69,7 +69,7 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
                                 return (
                                     <div
                                         key={tech.name}
-                                        className="text-sm font-medium w-fit flex items-center gap-3 px-3 py-1 rounded-xl border border-foreground/10 bg-foreground/5 backdrop-blur-md transition-colors hover:bg-foreground/10 hover:border-foreground/20"
+                                        className="text-sm font-light w-fit flex items-center gap-3 px-2 border border-foreground/5 bg-foreground/5 backdrop-blur-md transition-colors hover:bg-foreground/10 hover:border-foreground/20"
                                     >
                                         {tech.name}
                                     </div>

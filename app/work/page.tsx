@@ -12,11 +12,11 @@ export default function Work() {
     });
 
     // Translate the content horizontally as the user scrolls vertically
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
 
     return (
         <main className="bg-background selection:bg-foreground/20">
-            <div ref={targetRef} className="relative h-[400vh]">
+            <div ref={targetRef} className="relative h-[800vh]">
                 <div className="sticky top-0 flex h-screen items-center overflow-hidden">
                     {/* Fixed Title - Stays put while content slides */}
                     <div className="absolute top-40 left-0 w-full px-[10vw] z-10">
@@ -30,9 +30,9 @@ export default function Work() {
                         </motion.h2>
                     </div>
 
-                    <motion.div style={{ x }} className="flex gap-16 px-[10vw] items-center pt-210vh">
+                    <motion.div style={{ x }} className="flex px-[10vw] items-center">
                         {/* Projects Row */}
-                        <div className="flex gap-16 items-center">
+                        <div className="flex gap-19 items-center">
                             {[...projects].reverse().map((project, idx) => (
                                 <motion.div
                                     key={project.id}
@@ -52,14 +52,18 @@ export default function Work() {
                             ))}
                         </div>
 
+                        <div className="flex items-center gap-16 whitespace-nowrap">
+                            <p className="ml-400 font-light opacity-50">peach</p>
+                            <p className="ml-400 font-light opacity-50">พิชญาภา ไทเศรษฐวัฒน์กุล</p>
+                            <p className="ml-400 font-light opacity-50">pichayapa thaisedhawatkul</p>
+                        </div>
+
+                        <p className="ml-400 font-light opacity-50">&lt;/p&gt;</p>
                         {/* End Spacer */}
                         <div className="min-w-[40vw]" />
                     </motion.div>
                 </div>
             </div>
-
-            {/* Footer space */}
-            <div className="h-[10vh]" />
         </main>
     );
 }

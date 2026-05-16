@@ -107,7 +107,6 @@ export default function Home() {
         <section id="about" className="relative z-10 w-screen h-screen mb-16 md:mb-40 bg-background px-18 md:px-19 xl:px-24 scroll-mt-24 border-y-2 border-white/40
             dark:shadow-[0_-35px_35px_-5px_rgba(251,146,60,0.04),0_-2px_25px_-5px_rgba(251,146,60,0.5),0_20px_25px_-5px_rgba(251,146,60,0.2),inset_0_0_2px_1px_rgba(251,146,60,0.1)]
            shadow-[0_-30px_25px_-5px_rgba(0,0,0,0.03),0_20px_25px_-5px_rgba(0,0,0,0.04),inset_0_0_2px_1px_rgba(255,255,255,0.05)]">
-          {/* shadow-[0_-30px_20px_-15px_rgba(0,0,0,0.02),0_-15px_20px_-5px_rgba(0,0,0,0.03)]"> */}
 
           <Image
             src="/assets/polycarbonate-6194281dac837-1200.jpg"
@@ -125,7 +124,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{}}
-            className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-12 pt-10"
+            className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-10 pt-15"
           >
             About Me
           </motion.h2>
@@ -142,13 +141,13 @@ export default function Home() {
                 From structural architecture to digital experiences.
               </h3>
               <p className="text-foreground/60 leading-relaxed font-light mb-6">
-                With a foundation in Architecture from Chulalongkorn University and ENSAV in France, my journey into technology is driven by a passion for building robust, human-centered systems.
+                With a foundation in Architecture, my journey into technology is driven by a passion for building robust, human-centered systems.
               </p>
               <motion.div
                 initial="initial"
                 whileHover="hover"
                 data-hide-cursor
-                className="relative mt-9 w-[350px] h-[450px] overflow-hidden cursor-none"
+                className="relative mt-9 w-[30vw] h-[30vw] max-h-fit overflow-hidden cursor-none"
               >
                 <div
                   className="absolute inset-0 z-0 opacity-25 dark:opacity-12"
@@ -172,13 +171,6 @@ export default function Home() {
                   />
                 </motion.div>
               </motion.div>
-              {/* <Image
-                src="/assets/profile.jpg"
-                alt="Profile"
-                width={350}
-                height={350}
-                className="object-cover object-center"
-              /> */}
             </motion.div>
 
             <motion.div
@@ -188,39 +180,47 @@ export default function Home() {
               transition={{ ...springConfig, delay: 0.1 }}
               className="md:col-span-6 md:col-start-7"
             >
-              <div className="space-y-8">
+              <div className="space-y-14">
                 {/* Education */}
                 <div>
-                  <h4 className="text-sm font-medium text-foreground mb-4 border-b border-foreground/10 pb-2">Education & Journey</h4>
-                  <ul className="space-y-4 text-sm font-light text-foreground/60">
+                  <h4 className="text-[12px] font-light text-foreground mb-4 border-b border-foreground/10 pb-2 uppercase">Education</h4>
+                  <ul className="space-y-4 text-[16px] font-light">
                     <li className="flex justify-between items-start">
-                      <span>CodeCamp Fullstack Developer #22</span>
-                      <span className="text-foreground/40 text-right">2026 - Present</span>
+                      <span className="font-medium">CodeCamp Fullstack Developer #22</span>
+                      <span className="text-right">Jan 2026 - May 2026</span>
                     </li>
                     <li className="flex justify-between items-start">
-                      <span>Chulalongkorn University <br /><span className="text-xs text-foreground/40">Bachelor of Architecture</span></span>
-                      <span className="text-foreground/40 text-right">Bangkok</span>
+                      <span className="font-medium">Chulalongkorn University <br /><span className="text-xs font-light">Bachelor of Architecture Program in Architecture, Faculty of Architecture.</span></span>
+                      <span className="text-right">2020 - 2025</span>
                     </li>
                     <li className="flex justify-between items-start">
-                      <span>ENSAV <br /><span className="text-xs text-foreground/40">Exchange Program</span></span>
-                      <span className="text-foreground/40 text-right">France</span>
+                      <span className="font-medium">ÉNSAV <br /><span className="text-xs font-light">Exchange program in France.</span></span>
+                      <span className="text-right">Sep 2023 - Jan 2024</span>
                     </li>
                   </ul>
                 </div>
 
-                {/* Experience & Certifications */}
+                {/* Certifications */}
                 <div>
-                  <h4 className="text-sm font-medium text-foreground mb-4 border-b border-foreground/10 pb-2">Experience & Certs</h4>
-                  <ul className="space-y-4 text-sm font-light text-foreground/60">
+                  <h4 className="text-[12px] font-light text-foreground mb-4 border-b border-foreground/10 pb-2 uppercase">Certifications</h4>
+                  <ul className="space-y-4 text-[16px] font-light">
                     <li className="flex justify-between items-start">
-                      <span>Architectural Intern <br /><span className="text-xs text-foreground/40">K2LD Singapore</span></span>
-                      <span className="text-foreground/40 text-right">2024</span>
+                      <span className="font-medium">Google UX Design Professional Cert.</span>
+                      <span className="text-right">2025</span>
                     </li>
                     <li className="flex justify-between items-start">
-                      <span>Google UX Design Professional Cert.</span>
+                      <span className="font-medium">Google Digital Marketing & E-commerce</span>
+                      <span className="text-right">2025</span>
                     </li>
+                  </ul>
+                </div>
+                {/* Experience */}
+                <div>
+                  <h4 className="text-[12px] font-light text-foreground mb-4 border-b border-foreground/10 pb-2 uppercase">Experience</h4>
+                  <ul className="space-y-4 text-[16px] font-light">
                     <li className="flex justify-between items-start">
-                      <span>Google Digital Marketing & E-commerce</span>
+                      <span className="font-medium">Architectural Intern <br /><span className="text-xs font-light">K2LD Singapore</span></span>
+                      <span className="text-right">May 2024 - Aug 2024</span>
                     </li>
                   </ul>
                 </div>
@@ -319,15 +319,28 @@ export default function Home() {
             >
               get in touch
             </motion.h2>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ margin: "-100px" }}
-              transition={{ ...springConfig, delay: 0.1 }}
-              className="text-5xl md:text-9xl font-bold tracking-tighter text-background/90 mb-6"
-            >
-              Let's Create Something Together
-            </motion.h1>
+
+            <div data-hide-cursor className="flex flex-col luckiest-guy-regular text-7xl md:text-9xl font-bold tracking-tighter text-background/90 hover:text-yellow-500 mb-8">
+              <motion.a
+                href="mailto:pichayapa.thai@gmail.com?subject=Inquiry from Portfolio"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ margin: "-100px" }}
+                transition={{ ...springConfig, delay: 0.1 }}
+              >
+                Let's Create
+              </motion.a>
+              <motion.a
+                href="mailto:pichayapa.thai@gmail.com?subject=Inquiry from Portfolio"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ margin: "-100px" }}
+                transition={{ ...springConfig, delay: 0.1 }}
+              >
+                Something Together
+              </motion.a>
+            </div>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
