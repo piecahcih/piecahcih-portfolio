@@ -115,6 +115,7 @@ export const technicalDepth: TechnicalDepth[] = [
             { name: "Docker", icon: "https://cdn.simpleicons.org/docker" },
             { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel" },
             { name: "Railway", icon: "https://cdn.simpleicons.org/railway" },
+            { name: "Render", icon: "https://cdn.simpleicons.org/render" },
             { name: "Photoshop", icon: "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxhfRM_njI7Pu32CmBLMdmnnzF6MdNHw4MJwlr.tSWLA2EJBQdZh0p3nNDzGvX2F6NoIc9ZSQ9xJqsGEg5bouOnA-&format=source&h=210" },
             { name: "Illustrator", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Adobe_Illustrator_CC_icon.svg/1280px-Adobe_Illustrator_CC_icon.svg.png" },
             { name: "InDesign", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Adobe_InDesign_CC_icon.svg/250px-Adobe_InDesign_CC_icon.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" },

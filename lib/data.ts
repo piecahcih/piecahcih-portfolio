@@ -5,17 +5,19 @@ export const projects: ProjectData[] = [
     id: "architecture-portfolio",
     title: "Architecture Portfolio",
     subtitle: "architectural Design",
-    description: "A high-performance banking dashboard with real-time updates.",
-    technicalChallenge: "Orchestrated WebSockets with a custom Node.js microservice architecture to handle high-frequency trading data, reducing latency to < 50ms.",
+    description: "My architecture portfolio developed throughout my studies at Chulalongkorn University.",
     imageUrl: [
       "https://res.cloudinary.com/piecahcih/image/upload/v1777969934/7-pavilion_j31yei.png",
-      "https://res.cloudinary.com/piecahcih/image/upload/v1777969934/7-pavilion_j31yei.png"
+      "https://res.cloudinary.com/piecahcih/image/upload/v1778862473/Screenshot_2026-05-15_232036_o9rqjt.png"
     ],
     stack: [
-      { name: "Sketchup 2024", category: "Software" },
       { name: "Autodesk", category: "Software" },
+      { name: "Sketchup 2024", category: "Software" },
+      { name: "Enscape", category: "Software" },
+      { name: "D5", category: "Software" },
       { name: "Adobe Indesign", category: "Software" },
       { name: "Adobe Photoshop", category: "Software" },
+      { name: "Adobe Illustrator", category: "Software" },
     ],
     layoutConfig: { colSpan: 8, rowSpan: 2 }, // Takes up 8/12 cols
     link: "https://online.fliphtml5.com/wbrna/rral/",
@@ -24,18 +26,27 @@ export const projects: ProjectData[] = [
     id: "pichngo",
     title: "Pich & Go",
     subtitle: "Hotel Booking Platform",
-    description: "Built a Thailand-based hotel booking platform that covers the full hotel booking journey from browsing and booking to payment and post-stay reviews, with additional features including a favourites system and a loyalty rewards program.",
-    technicalChallenge: "Engineered a seamless booking and payment flow using Stripe, with full booking history tracking and an admin panel for operational management. Integrated an AI-powered chatbot for real-time customer assistance, delivering personalized responses to guest inquiries and service FAQs.",
+    description: "Built a Thailand-based hotel booking platform that delivers a complete end-to-end user experience, from browsing and booking to payment and post-stay reviews, with additional features including a favourites system and a loyalty rewards program.",
+    technicalChallenge: "Engineered a seamless booking and payment workflow through Stripe integration, featuring comprehensive booking history tracking and a centralized administrative dashboard for operational oversight. Additionally, implemented an AI-powered conversational chatbot to provide real-time customer support and personalized responses to guest inquiries and service-related FAQs.",
     imageUrl: [
-      "https://res.cloudinary.com/piecahcih/image/upload/v1778002833/Screenshot_2026-05-06_003957_v8gn9f.png",
+      "https://res.cloudinary.com/piecahcih/image/upload/v1778860759/pichngoinmac_iily5u.png",
       "https://res.cloudinary.com/piecahcih/image/upload/v1778002833/Screenshot_2026-05-06_003957_v8gn9f.png"
     ],
     stack: [
-      { name: "React", category: "Frontend" },
+      { name: "React.js", category: "Frontend" },
+      { name: "TailwindCSS", category: "Frontend" },
+      { name: "Framer-Motion", category: "Frontend" },
+      { name: "UX/UI", category: "Design" },
+      { name: "Zustand", category: "Frontend" },
       { name: "Node.js", category: "Backend" },
+      { name: "Express.js", category: "Backend" },
       { name: "MySQL", category: "Backend" },
+      { name: "Prisma", category: "Backend" },
+      { name: "Cloudinary", category: "Infrastructure" },
       { name: "Stripe", category: "Payment" },
       { name: "AI Chatbot", category: "AI-powered" },
+      { name: "Vercel", category: "Devops/Deployment" },
+      { name: "Railway", category: "Devops/Deployment" },
     ],
     layoutConfig: { colSpan: 8, rowSpan: 2 },
     link: 'https://pichngo.vercel.app/'
@@ -44,19 +55,29 @@ export const projects: ProjectData[] = [
     id: "onlyfriendssss",
     title: "Onlyfriendssss",
     subtitle: "Social Community Application",
-    description: "A Social Community application, that facilitates real-world meetups through interest-based activity hosting.",
-    technicalChallenge: "Engineered a real-time chat and slot tracking system using Socket.io. Integrated Mapbox for location-based activity discovery and Google OAuth for secure authentication. Implemented a host-mediated 'Pending/Approved' join system, giving hosts control over participant selection while maintaining live slot count accuracy. Designed a custom Peer-to-Peer scoring system to promote accountability and maintain a trustworthy community.",
+    description: "Led the end-to-end design and full-stack development of a social community application focused on facilitating real-world connections through interest-based activity hosting and meetups.",
+    technicalChallenge: "Engineered a real-time messaging and participant slot-tracking system using Socket.IO, enabling synchronized user interactions and live activity updates. Integrated Mapbox for location-based activity discovery and Google OAuth for secure user authentication. Implemented a host-mediated “Pending/Approved” participation workflow, allowing activity hosts to manage attendee selection while preserving real-time slot availability accuracy. Additionally, designed and developed a custom peer-to-peer reputation scoring system to encourage accountability and foster a trustworthy community environment.",
     imageUrl: [
       "https://res.cloudinary.com/piecahcih/image/upload/v1778003700/Screenshot_2026-05-06_004605_frew7s.png",
-      "https://res.cloudinary.com/piecahcih/image/upload/v1778003700/Screenshot_2026-05-06_004605_frew7s.png"
+      "https://res.cloudinary.com/piecahcih/image/upload/v1778866456/onlyfriends_jiqkcd.png"
     ],
     stack: [
       { name: "React", category: "Frontend" },
+      { name: "TailwindCSS", category: "Frontend" },
+      { name: "Framer-Motion", category: "Frontend" },
+      { name: "UX/UI", category: "Design" },
+      { name: "Zustand", category: "Frontend" },
+      { name: "Zod", category: "Frontend" },
       { name: "Node.js", category: "Backend" },
-      { name: "MySQL", category: "Backend" },
+      { name: "Express.js", category: "Backend" },
+      { name: "PostgreSQL", category: "Backend" },
       { name: "Socket.io", category: "Real-time" },
       { name: "Mapbox", category: "Map" },
-      { name: "Google OAuth", category: "Auth" },
+      { name: "Multer", category: "Infrastructure" },
+      { name: "Google OAuth (firebase)", category: "Auth" },
+      { name: "Vercel", category: "Devops/Deployment" },
+      { name: "Render", category: "Devops/Deployment" },
+      { name: "Supabase", category: "Devops/Deployment" },
     ],
     layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
     link: "https://onlyfriendssss.vercel.app/",
@@ -64,7 +85,7 @@ export const projects: ProjectData[] = [
   {
     id: "pch-grid",
     title: "PchGrid",
-    subtitle: "Financial & Plan management platform",
+    subtitle: "Expense Tracker & Planner",
     description: "A headless CMS built for editorial teams with strict typing.",
     technicalChallenge: "Engineered a strictly typed GraphQL API with .NET, allowing robust querying while maintaining a sub-100ms response time globally.",
     imageUrl: [

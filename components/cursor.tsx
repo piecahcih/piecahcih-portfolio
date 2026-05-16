@@ -22,8 +22,17 @@ export default function CustomCursor() {
         };
         const handleOver = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
+            if (!target) return;
+
             setIsHidden(!!target.closest("[data-hide-cursor]"));
-            setIsExpanded(!!target.closest("[data-expand-cursor]"));
+
+            const expandTarget = target.closest('[data-expand-cursor="true"]') as HTMLElement;
+            if (expandTarget) {
+                const opacity = window.getComputedStyle(expandTarget).opacity;
+                setIsExpanded(opacity !== "0");
+            } else {
+                setIsExpanded(false);
+            }
         };
         window.addEventListener("mousemove", handleMove);
         window.addEventListener("mouseover", handleOver);

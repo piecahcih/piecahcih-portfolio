@@ -90,7 +90,7 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
                 </div>
 
                 {/* Hero Image */}
-                <div className="flex gap-2">
+                <div className="flex flex-col md:flex-row gap-2">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.98 }}
                         animate={{ opacity: 1, scale: 1 }}

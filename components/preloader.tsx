@@ -31,7 +31,7 @@ export function Preloader() {
 
   // Handle progress counting
   useEffect(() => {
-    const duration = 3000; // 2.5 seconds
+    const duration = 2400; // 2.4 seconds
     const interval = 20;
     const increment = 100 / (duration / interval);
 

@@ -12,6 +12,7 @@ import CustomCursor from "@/components/cursor";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { Preloader } from "@/components/preloader";
 import { LoadingProvider } from "@/context/loading-context";
+import { Footer } from "@/components/footer";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -71,39 +72,7 @@ export default async function RootLayout({
             <main>
               {children}
             </main>
-            <footer className="fixed bottom-5 flex justify-between px-6 w-full items-end z-50 pointer-events-none">
-              <div className="flex flex-col gap-4 items-center pointer-events-auto">
-                <SocialLink
-                  href="/assets/Resume.pdf"
-                  icon={CVIcon}
-                  label="CV"
-                />
-                <SocialLink
-                  href="https://github.com/piecahcih"
-                  icon={GitHubIcon}
-                  label="GitHub"
-                />
-                <SocialLink
-                  href="http://www.linkedin.com/in/pichayapa-thaisedhawatkul-414217328"
-                  icon={LinkedInIcon}
-                  label="LinkedIn"
-                />
-                <SocialLink
-                  href="http://www.instagram.com/piecahcih"
-                  icon={InstagramIcon}
-                  label="Instagram"
-                />
-                <div className="w-[2px] h-26 bg-foreground/20 -mb-6" />
-              </div>
-              <div className="-rotate-270 pb-46 fixed bottom-5 right-5 font-light pointer-events-none w-fit">
-                <a href="mailto:pichayapa.thai@gmail.com?subject=Inquiry from Portfolio"
-                  rel="noopener noreferrer"
-                  data-hide-cursor
-                  className="hover:cursor-pointer hover:text-yellow-500 pointer-events-auto">
-                  pichayapa.thai@gmail.com
-                </a>
-              </div>
-            </footer>
+            <Footer />
             <MusicModal tracks={tracks} />
           </LoadingProvider>
         </ThemeProvider>

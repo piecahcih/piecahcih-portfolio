@@ -1,6 +1,6 @@
 import { ElementType } from "react";
 
-export type TechCategory = "Frontend" | "Backend" | "Infrastructure" | "Design" | "Software" | "Payment" | "Tools" | "Real-time" | "Map" | "Auth" | "AI-powered";
+export type TechCategory = "Frontend" | "Backend" | "Infrastructure" | "Design" | "Software" | "Payment" | "Tools" | "Real-time" | "Map" | "Auth" | "AI-powered" | "Devops/Deployment";
 
 export interface TechStackItem {
   name: string;
@@ -13,7 +13,7 @@ export interface ProjectData {
   title: string;
   subtitle: string;
   description: string;
-  technicalChallenge: string;
+  technicalChallenge?: string;
   imageUrl: string[];
   link?: string;
   liveUrl?: string;

@@ -13,7 +13,7 @@ export const SocialLink = ({ href, icon: Icon, label }: SocialLinkProps) => (
         target="_blank"
         rel="noopener noreferrer"
         data-hide-cursor
-        className="text-foreground/80 hover:text-foreground transition-colors duration-300 flex items-center justify-center hover:cursor-pointer hover:text-yellow-500"
+        className="text-inherit opacity-80 hover:opacity-100 hover:text-yellow-500 transition-all duration-300 flex items-center justify-center hover:cursor-pointer"
     >
         <Icon className="w-6 h-6" />
     </Link>

@@ -24,14 +24,16 @@ export default function Home() {
   const heroOpacity = useTransform(scrollY, [0, 800], [1, 0]);
   const heroTranslationY = useTransform(scrollY, [0, 800], [0, -100]);
 
+  const heroPointerEvents = useTransform(scrollY, [0, 600], ["auto", "none"]);
+
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-foreground/20">
 
       <div className="mx-auto">
         {/* HERO SECTION */}
-        <motion.section style={{ opacity: heroOpacity, y: heroTranslationY }}
+        <motion.section style={{ opacity: heroOpacity, y: heroTranslationY, pointerEvents: heroPointerEvents }}
           className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden z-0">
-          <div className="ml-55">
+          <div className="ml-[14vw]">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -44,7 +46,7 @@ export default function Home() {
             </motion.div>
 
             <div
-              className="relative group cursor-none"
+              className={`relative group cursor-none${!isFinished ? " pointer-events-none" : ""}`}
               style={{ "--x": "-1000px", "--y": "-1000px" } as React.CSSProperties}
               onMouseMove={(e) => {
                 const rect = e.currentTarget.getBoundingClientRect();
@@ -59,8 +61,8 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ ...springConfig, delay: 0.2 }}
-                data-expand-cursor
-                className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter my-2 max-w-4xl text-foreground"
+                {...(isFinished ? { "data-expand-cursor": "true" } : {})}
+                className={`text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter my-2 max-w-4xl text-foreground ${!isFinished ? 'pointer-events-none' : ''}`}
               >
                 Pichayapa Thaisedhawatkul
               </motion.h1>
@@ -102,7 +104,7 @@ export default function Home() {
         </motion.section>
 
         {/* ABOUT SECTION */}
-        <section id="about" className="relative z-10 w-screen h-screen mb-16 md:mb-40 bg-background px-6 md:px-12 xl:px-24 scroll-mt-24 border-y-2 border-white/40
+        <section id="about" className="relative z-10 w-screen h-screen mb-16 md:mb-40 bg-background px-18 md:px-19 xl:px-24 scroll-mt-24 border-y-2 border-white/40
             dark:shadow-[0_-35px_35px_-5px_rgba(251,146,60,0.04),0_-2px_25px_-5px_rgba(251,146,60,0.5),0_20px_25px_-5px_rgba(251,146,60,0.2),inset_0_0_2px_1px_rgba(251,146,60,0.1)]
            shadow-[0_-30px_25px_-5px_rgba(0,0,0,0.03),0_20px_25px_-5px_rgba(0,0,0,0.04),inset_0_0_2px_1px_rgba(255,255,255,0.05)]">
           {/* shadow-[0_-30px_20px_-15px_rgba(0,0,0,0.02),0_-15px_20px_-5px_rgba(0,0,0,0.03)]"> */}
@@ -122,7 +124,7 @@ export default function Home() {
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{}}
             className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-12 pt-10"
           >
             About Me
@@ -132,7 +134,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ margin: "-50px" }}
               transition={{ ...springConfig }}
               className="md:col-span-5"
             >
@@ -182,7 +184,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }}
               transition={{ ...springConfig, delay: 0.1 }}
               className="md:col-span-6 md:col-start-7"
             >
@@ -232,13 +234,19 @@ export default function Home() {
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-8 md:mb-12 px-6 md:px-12 xl:px-24"
+            viewport={{}}
+            className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-8 md:mb-12 px-18 md:px-19 xl:px-24"
           >
             Selected Works
           </motion.h2>
 
-          <div className="relative flex">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ margin: "-100px" }}
+            transition={springConfig}
+            className="relative flex"
+          >
             {/* The Marquee Container */}
             <div
               className="flex gap-6 whitespace-nowrap animate-marquee"
@@ -257,15 +265,15 @@ export default function Home() {
             {/* Gradient Fades for Editorial look */}
             <div className="pointer-events-none absolute inset-y-0 left-0 w-70 bg-gradient-to-r from-background to-transparent z-20" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-70 bg-gradient-to-l from-background to-transparent z-20" />
-          </div>
+          </motion.div>
         </section>
 
         {/* TECHNICAL DEPTH SECTION */}
-        <section className="mb-16 md:mb-24 px-6 md:px-12 xl:px-24">
+        <section className="mb-20 md:mb-35 px-18 md:px-19 xl:px-24">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{}}
             className="text-xs font-semibold tracking-[0.2em] text-foreground/40 uppercase mb-8 md:mb-12"
           >
             My Tech Stack
@@ -278,7 +286,7 @@ export default function Home() {
                 key={stack.category}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ margin: "-50px" }}
                 transition={{ ...springConfig, delay: idx * 0.15 }}
                 className="group"
               >
@@ -297,6 +305,53 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+
+        {/* OPEN FOR WORK SECTION */}
+        <section className="min-h-[85vh] px-18 md:px-19 xl:px-24 bg-foreground text-background flex flex-col justify-between">
+          <div className="flex flex-col pt-30">
+            <motion.h2
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{}}
+              transition={{ ...springConfig, delay: 0.1 }}
+              className="text-xs font-semibold tracking-[0.2em] text-background/40 uppercase mb-8 md:mb-12"
+            >
+              get in touch
+            </motion.h2>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ ...springConfig, delay: 0.1 }}
+              className="text-5xl md:text-9xl font-bold tracking-tighter text-background/90 mb-6"
+            >
+              Let's Create Something Together
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ margin: "-100px" }}
+              transition={{ ...springConfig, delay: 0.2 }}
+              className="text-lg md:text-xl text-background/60 font-light leading-relaxed"
+            >
+              I'm currently open to full-time roles, freelance projects, and collaborations. If you have a project in mind or just want to chat about design and technology, I'd love to hear from you.
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 40 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ margin: "-50px" }}
+            transition={{ ...springConfig, delay: 0.5 }}
+            className="mt-auto pt-20"
+          >
+            {/* <h1 className="text-[12vw] md:text-[11vw] font-bold tracking-tighter text-background/90">
+              Piecahcih.
+            </h1> */}
+          </motion.div>
+        </section>
+
       </div>
     </div>
   );

@@ -57,7 +57,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         {/* Card Content */}
         <div className="relative z-20 flex flex-col h-full justify-end">
           {/* Editorial Default State */}
-          <div className="mb-2">
+          <div>
             <motion.p
               layout="position"
               className="text-xs font-medium tracking-[0.2em] text-foreground/60 uppercase mb-3"
@@ -83,7 +83,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                 transition={springConfig}
                 className="overflow-hidden"
               >
-                <div className="pt-6 mt-4 border-t border-foreground/10 flex flex-col gap-5">
+                <div className="pt-6 flex flex-col gap-5">
                   <div>
                     <span className="text-[10px] font-semibold text-foreground/40 uppercase tracking-widest block mb-2">
                       Overview

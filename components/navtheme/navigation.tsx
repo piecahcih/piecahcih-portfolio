@@ -28,7 +28,12 @@ export function Navigation() {
   const [vw, setVw] = useState<number>(1440);
 
   const { scrollY } = useScroll();
-  const smoothScrollY = useSpring(scrollY, {
+  // Override scroll value to 0 on the work page to disable navigation morphing
+  const effectiveScroll = useTransform(scrollY, (value) => 
+    pathname === "/work" ? 0 : value
+  );
+  
+  const smoothScrollY = useSpring(effectiveScroll, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
