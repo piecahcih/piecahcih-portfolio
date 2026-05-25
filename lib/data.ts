@@ -58,7 +58,7 @@ export const projects: ProjectData[] = [
     description: "Led the end-to-end design and full-stack development of a social community application focused on facilitating real-world connections through interest-based activity hosting and meetups.",
     technicalChallenge: "Engineered a real-time messaging and participant slot-tracking system using Socket.IO, enabling synchronized user interactions and live activity updates. Integrated Mapbox for location-based activity discovery and Google OAuth for secure user authentication. Implemented a host-mediated “Pending/Approved” participation workflow, allowing activity hosts to manage attendee selection while preserving real-time slot availability accuracy. Additionally, designed and developed a custom peer-to-peer reputation scoring system to encourage accountability and foster a trustworthy community environment.",
     imageUrl: [
-      "https://res.cloudinary.com/piecahcih/image/upload/v1778003700/Screenshot_2026-05-06_004605_frew7s.png",
+      "https://res.cloudinary.com/piecahcih/image/upload/v1779089987/Untitled_design_1_q5ngks.png",
       "https://res.cloudinary.com/piecahcih/image/upload/v1778866456/onlyfriends_jiqkcd.png"
     ],
     stack: [
@@ -82,21 +82,21 @@ export const projects: ProjectData[] = [
     layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
     link: "https://onlyfriendssss.vercel.app/",
   },
-  {
-    id: "pch-grid",
-    title: "PchGrid",
-    subtitle: "Expense Tracker & Planner",
-    description: "A headless CMS built for editorial teams with strict typing.",
-    technicalChallenge: "Engineered a strictly typed GraphQL API with .NET, allowing robust querying while maintaining a sub-100ms response time globally.",
-    imageUrl: [
-      "https://i.pinimg.com/webp80/736x/6c/48/ed/6c48ed0af2475884a33be1a5595c5315.webp",
-      "https://i.pinimg.com/webp80/736x/6c/48/ed/6c48ed0af2475884a33be1a5595c5315.webp"
-    ],
-    stack: [
-      { name: ".NET", category: "Backend" },
-      { name: "TypeScript", category: "Frontend" },
-    ],
-    layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
-    link: "https://www.youtube.com/watch?v=TGgcC5xg9YI&list=RDTGgcC5xg9YI&start_radio=1",
-  },
+  // {
+  //   id: "pch-grid",
+  //   title: "PchGrid",
+  //   subtitle: "Expense Tracker & Planner",
+  //   description: "A headless CMS built for editorial teams with strict typing.",
+  //   technicalChallenge: "Engineered a strictly typed GraphQL API with .NET, allowing robust querying while maintaining a sub-100ms response time globally.",
+  //   imageUrl: [
+  //     "https://i.pinimg.com/webp80/736x/6c/48/ed/6c48ed0af2475884a33be1a5595c5315.webp",
+  //     "https://i.pinimg.com/webp80/736x/6c/48/ed/6c48ed0af2475884a33be1a5595c5315.webp"
+  //   ],
+  //   stack: [
+  //     { name: ".NET", category: "Backend" },
+  //     { name: "TypeScript", category: "Frontend" },
+  //   ],
+  //   layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
+  //   link: "https://www.youtube.com/watch?v=TGgcC5xg9YI&list=RDTGgcC5xg9YI&start_radio=1",
+  // },
 ];
