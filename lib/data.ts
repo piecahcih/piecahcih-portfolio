@@ -82,6 +82,23 @@ export const projects: ProjectData[] = [
     layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
     link: "https://onlyfriendssss.vercel.app/",
   },
+  {
+    id: "pichpocket",
+    title: "PichPocket",
+    subtitle: "Finance Tracking and Split a bill app",
+    description: "A personal finance tracker with smart bill splitting for Thai users. It lets you track income and expenses, set monthly budgets per category, and visualize your spending on a dashboard. Its standout feature is group bill splitting — create a bill, add friends, and the app generates a PromptPay QR code for each person's share so they can pay instantly from any Thai banking app.",
+    technicalChallenge: "Engineered a strictly typed GraphQL API with .NET, allowing robust querying while maintaining a sub-100ms response time globally.",
+    imageUrl: [
+      "https://i.pinimg.com/webp80/736x/6c/48/ed/6c48ed0af2475884a33be1a5595c5315.webp",
+      "https://i.pinimg.com/webp80/736x/6c/48/ed/6c48ed0af2475884a33be1a5595c5315.webp"
+    ],
+    stack: [
+      { name: ".NET", category: "Backend" },
+      { name: "TypeScript", category: "Frontend" },
+    ],
+    layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
+    link: "https://www.youtube.com/watch?v=TGgcC5xg9YI&list=RDTGgcC5xg9YI&start_radio=1",
+  },
   // {
   //   id: "pch-grid",
   //   title: "PchGrid",

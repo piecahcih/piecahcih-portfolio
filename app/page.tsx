@@ -152,7 +152,6 @@ export default function Home() {
                 <div
                   className="absolute inset-0 z-0 opacity-25 dark:opacity-12"
                   style={{ background: 'radial-gradient(circle at center, var(--glow-color) 0%, var(--outglow-color) 30%, transparent 100%)' }}
-                // style={{ background: 'radial-gradient(circle at center, rgba(254, 240, 138, 0.6) 0%, rgba(254, 249, 195, 0.4) 50%, transparent 100%)' }}
                 />
 
                 <motion.div
