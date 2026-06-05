@@ -40,7 +40,7 @@ export function ProjectCardGB({ project, className }: ProjectCardProps) {
         "dark:shadow-[1px_1px_10px_2px_rgba(251,146,60,0.5),_0px_0px_62px_10px_rgba(226,113,133,0.2)]",
         // "dark:shadow-[7px_3px_15px_2px_rgba(251,146,60,0.4),_7px_3px_50px_10px_rgba(251,113,133,0.15)]",
         "dark:border border-foreground/40",
-        "h-[360px] w-[360px]",
+        "h-[80vw] sm:h-[360px] w-[80vw] sm:w-[360px]",
         projectLink ? "cursor-pointer" : "cursor-default",
         className
       )}

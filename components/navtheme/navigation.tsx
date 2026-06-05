@@ -107,7 +107,7 @@ export function Navigation() {
   const borderColor = useMotionTemplate`rgba(120, 120, 120, ${borderOpacity})`;
 
   return (
-    <div className="fixed inset-x-0 top-0 z-50 flex justify-end pr-6 pointer-events-none">
+    <div className="fixed inset-x-0 top-0 z-50 flex justify-end md:pr-6 pointer-events-none">
       <motion.nav
         style={{
           width: navWidth,
@@ -120,7 +120,7 @@ export function Navigation() {
           position: "relative",
           border: useMotionTemplate`1px solid ${borderColor}`,
         }}
-        className="flex items-center gap-1 p-1.5 rounded-full backdrop-blur-md pointer-events-auto"
+        className="flex items-center gap-0 sm:gap-1 p-1.5 rounded-full backdrop-blur-md pointer-events-auto"
         aria-label="Main navigation"
       >
         {/* ── Shadow overlay (only appears in pill/scrolled state) ── */}
@@ -145,7 +145,7 @@ export function Navigation() {
           <Link
             href="/"
             data-hide-cursor
-            className="font-light tracking-[0.2em] ml-3 text-foreground hover:text-yellow-500 transition-colors duration-300"
+            className="font-light tracking-[0.2em] ml-1 sm:ml-3 text-[10px] sm:text-base text-foreground hover:text-yellow-500 transition-colors duration-300"
             tabIndex={-1}
           >
             PIECAHCIH
@@ -173,7 +173,7 @@ export function Navigation() {
                 onMouseEnter={() => setHoveredPath(item.path)}
                 onMouseLeave={() => setHoveredPath(null)}
                 data-hide-cursor
-                className="relative px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer"
+                className="relative px-2 md:px-4 py-1 md:py-2 rounded-full text-sm font-medium transition-colors cursor-pointer"
               >
                 {/* Hover / active pill background */}
                 {hoveredPath === item.path && (
@@ -190,7 +190,7 @@ export function Navigation() {
                 )}
 
                 <span className={cn(
-                  "relative z-10 transition-all duration-300 text-[16px]",
+                  "relative z-10 transition-all duration-300 text-[12px] md:text-[16px]",
                   isActive
                     ? "text-yellow-500 font-bold scale-105"
                     : hoveredPath === item.path

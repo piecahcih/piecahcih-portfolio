@@ -32,7 +32,7 @@ export default function Work() {
 
                     <motion.div style={{ x }} className="flex px-[10vw] items-center">
                         {/* Projects Row */}
-                        <div className="flex gap-19 items-center">
+                        <div className="flex gap-8 sm:gap-19 items-center">
                             {[...projects].reverse().map((project, idx) => (
                                 <motion.div
                                     key={project.id}

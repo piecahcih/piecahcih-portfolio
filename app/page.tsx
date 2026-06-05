@@ -62,7 +62,7 @@ export default function Home() {
                 animate={isFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ ...springConfig, delay: 0.2 }}
                 {...(isFinished ? { "data-expand-cursor": "true" } : {})}
-                className={`text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter my-2 max-w-4xl text-foreground ${!isFinished ? 'pointer-events-none' : ''}`}
+                className={`text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter my-2 max-w-4xl text-foreground ${!isFinished ? 'pointer-events-none' : ''}`}
               >
                 Pichayapa Thaisedhawatkul
               </motion.h1>
@@ -72,7 +72,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ ...springConfig, delay: 0.2 }}
-                className="absolute -inset-2 text-[127px] md:text-[180px] lg:text-[238px] luckiest-guy-regular tracking-wider leading-[0.88] max-w-4xl pointer-events-none select-none -z-10"
+                className="absolute -inset-2 text-[18vw] sm:text-[127px] md:text-[180px] lg:text-[238px] luckiest-guy-regular tracking-wider leading-[0.88] max-w-4xl pointer-events-none select-none -z-10"
                 style={{
                   maskImage: 'radial-gradient(circle 130px at var(--x) var(--y), black 100%, transparent 100%)',
                   WebkitMaskImage: 'radial-gradient(circle 130px at var(--x) var(--y), black 100%, transparent 100%)',
@@ -104,7 +104,7 @@ export default function Home() {
         </motion.section>
 
         {/* ABOUT SECTION */}
-        <section id="about" className="relative z-10 w-screen h-screen mb-16 md:mb-40 bg-background px-18 md:px-19 xl:px-24 scroll-mt-24 border-y-2 border-white/40
+        <section id="about" className="relative z-10 w-screen min-h-screen pb-20 mb-16 md:mb-40 bg-background px-18 md:px-19 xl:px-24 scroll-mt-24 border-y-2 border-white/40
             dark:shadow-[0_-35px_35px_-5px_rgba(251,146,60,0.04),0_-2px_25px_-5px_rgba(251,146,60,0.5),0_20px_25px_-5px_rgba(251,146,60,0.2),inset_0_0_2px_1px_rgba(251,146,60,0.1)]
            shadow-[0_-30px_25px_-5px_rgba(0,0,0,0.03),0_20px_25px_-5px_rgba(0,0,0,0.04),inset_0_0_2px_1px_rgba(255,255,255,0.05)]">
 
@@ -137,7 +137,7 @@ export default function Home() {
               transition={{ ...springConfig }}
               className="md:col-span-5"
             >
-              <h3 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6 leading-snug">
+              <h3 className="text-2xl md:text-4xl font-light tracking-tight text-foreground mb-6 leading-snug">
                 From structural architecture to digital experiences.
               </h3>
               <p className="text-foreground/60 leading-relaxed font-light mb-6">
@@ -160,7 +160,7 @@ export default function Home() {
                     hover: { opacity: 1, scale: 1 }
                   }}
                   transition={{ duration: 0.4, ease: "circOut" }}
-                  className="w-full h-full"
+                  className="w-full h-[360px]"
                 >
                   <Image
                     src="/assets/profile.jpg"
@@ -254,7 +254,7 @@ export default function Home() {
               {[...projects, ...projects].map((project, idx) => (
                 <div
                   key={`${project.id}-${idx}`}
-                  className="w-[450px] flex-shrink-0"
+                  className="w-[80vw] sm:w-[450px] flex-shrink-0"
                 >
                   <ProjectCard project={project} />
                 </div>
@@ -319,7 +319,7 @@ export default function Home() {
               get in touch
             </motion.h2>
 
-            <div data-hide-cursor className="flex flex-col luckiest-guy-regular text-7xl md:text-9xl font-bold tracking-tighter text-background/90 hover:text-yellow-500 mb-8">
+            <div data-hide-cursor className="flex flex-col luckiest-guy-regular text-[11vw] sm:text-7xl md:text-9xl font-bold tracking-tighter text-background/90 hover:text-yellow-500 mb-8">
               <motion.a
                 href="mailto:pichayapa.thai@gmail.com?subject=Inquiry from Portfolio"
                 initial={{ opacity: 0, y: 20 }}
