@@ -55,7 +55,7 @@ export const projects: ProjectData[] = [
     id: "onlyfriendssss",
     title: "Onlyfriendssss",
     subtitle: "Social Community Application",
-    description: "Led the end-to-end design and full-stack development of a social community application focused on facilitating real-world connections through interest-based activity hosting and meetups.",
+    description: "A social community application focused on facilitating real-world connections through interest-based activity hosting and meetups. My role is to led the end-to-end design and full-stack development of the application.",
     technicalChallenge: "Engineered a real-time messaging and participant slot-tracking system using Socket.IO, enabling synchronized user interactions and live activity updates. Integrated Mapbox for location-based activity discovery and Google OAuth for secure user authentication. Implemented a host-mediated “Pending/Approved” participation workflow, allowing activity hosts to manage attendee selection while preserving real-time slot availability accuracy. Additionally, designed and developed a custom peer-to-peer reputation scoring system to encourage accountability and foster a trustworthy community environment.",
     imageUrl: [
       "https://res.cloudinary.com/piecahcih/image/upload/v1779089987/Untitled_design_1_q5ngks.png",
@@ -63,6 +63,7 @@ export const projects: ProjectData[] = [
     ],
     stack: [
       { name: "React", category: "Frontend" },
+      { name: "Vite", category: "Frontend" },
       { name: "TailwindCSS", category: "Frontend" },
       { name: "Framer-Motion", category: "Frontend" },
       { name: "UX/UI", category: "Design" },
@@ -82,6 +83,28 @@ export const projects: ProjectData[] = [
     layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
     link: "https://onlyfriendssss.vercel.app/",
   },
+  {
+    id: "thunderblocks",
+    title: "thunderblocks",
+    subtitle: "UI Components",
+    description: "A copy-paste UI gallery framework. Which you can browse Blocks (page-level sections) and Components (smaller reusable UI) by category, preview them live at desktop/tablet/mobile widths, switch to a Code tab, and copy the source straight into their own project.",
+    technicalChallenge: "Developed a server-side dependency crawler that dynamically traces and packages local file imports for seamless source downloads. Resolved responsive iframe preview isolation challenges by synchronizing heights using browser font-loading events. Shifted syntax-highlighting processes entirely to Next.js Server Components to minimize client bundle sizes.",
+    imageUrl: [
+      "https://res.cloudinary.com/piecahcih/image/upload/v1784989484/Screenshot_2026-07-25_212155_qqsmz5.png",
+      "https://res.cloudinary.com/piecahcih/image/upload/v1784989147/thunderblocks_he960g.png",
+      "https://res.cloudinary.com/piecahcih/image/upload/v1784989147/thunderblocks-code_bn7sq0.png",
+    ],
+    stack: [
+      { name: "Next.js", category: "Frontend" },
+      { name: "TypeScript", category: "Frontend" },
+      { name: "React", category: "Frontend" },
+      { name: "Vite", category: "Frontend" },
+      { name: "TailwindCSS", category: "Frontend" },
+      { name: "Shiki", category: "Frontend" },
+    ],
+    layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
+    link: "https://www.youtube.com/watch?v=TGgcC5xg9YI&list=RDTGgcC5xg9YI&start_radio=1",
+  },
   // {
   //   id: "pichpocket",
   //   title: "PichPocket",
@@ -99,21 +122,5 @@ export const projects: ProjectData[] = [
   //   layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
   //   link: "https://www.youtube.com/watch?v=TGgcC5xg9YI&list=RDTGgcC5xg9YI&start_radio=1",
   // },
-  // {
-  //   id: "pch-grid",
-  //   title: "PchGrid",
-  //   subtitle: "Expense Tracker & Planner",
-  //   description: "A headless CMS built for editorial teams with strict typing.",
-  //   technicalChallenge: "Engineered a strictly typed GraphQL API with .NET, allowing robust querying while maintaining a sub-100ms response time globally.",
-  //   imageUrl: [
-  //     "https://i.pinimg.com/webp80/736x/6c/48/ed/6c48ed0af2475884a33be1a5595c5315.webp",
-  //     "https://i.pinimg.com/webp80/736x/6c/48/ed/6c48ed0af2475884a33be1a5595c5315.webp"
-  //   ],
-  //   stack: [
-  //     { name: ".NET", category: "Backend" },
-  //     { name: "TypeScript", category: "Frontend" },
-  //   ],
-  //   layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
-  //   link: "https://www.youtube.com/watch?v=TGgcC5xg9YI&list=RDTGgcC5xg9YI&start_radio=1",
-  // },
+
 ];

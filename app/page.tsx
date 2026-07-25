@@ -218,7 +218,15 @@ export default function Home() {
                   <h4 className="text-[12px] font-light text-foreground mb-4 border-b border-foreground/10 pb-2 uppercase">Experience</h4>
                   <ul className="space-y-4 text-[16px] font-light">
                     <li className="flex justify-between items-start">
-                      <span className="font-medium">Architectural Intern <br /><span className="text-xs font-light">K2LD Singapore</span></span>
+                      <span className="font-medium">Fullstack Developer Intern <br /><span className="text-xs font-light">eibiz</span></span>
+                      <span className="text-right">July 2026 - Current</span>
+                    </li>
+                    <li className="flex justify-between items-start">
+                      <span className="font-medium">Teacher Assistant <br /><span className="text-xs font-light">Relearn Solution</span></span>
+                      <span className="text-right">July 2026</span>
+                    </li>
+                    <li className="flex justify-between items-start">
+                      <span className="font-medium">Architect Intern <br /><span className="text-xs font-light">K2LD Singapore</span></span>
                       <span className="text-right">May 2024 - Aug 2024</span>
                     </li>
                   </ul>

@@ -90,12 +90,12 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
                 </div>
 
                 {/* Hero Image */}
-                <div className="flex flex-col md:flex-row gap-2">
+                <div className="flex flex-col md:flex-row gap-2 mb-20">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.98 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="relative w-full h-[600px] overflow-hidden mb-20 border border-foreground/10 bg-foreground/5"
+                        className="relative w-full h-[600px] overflow-hidden border border-foreground/10 bg-foreground/5"
                     >
                         <img
                             src={project.imageUrl[0]}
@@ -105,21 +105,53 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
 
                         <div className="absolute inset-0 bg-foreground/5 mix-blend-overlay pointer-events-none" />
                     </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.98 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="relative w-full h-[400px] aspect-[21/9] md:aspect-[16/7] overflow-hidden mb-20 border border-foreground/10 bg-foreground/5"
-                    >
-                        <img
-                            src={project.imageUrl[1]}
-                            alt={project.title}
-                            className="w-full h-full object-cover"
-                        />
+                    {project.imageUrl.length <= 2 ? (
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.98 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                            className="relative w-full h-[400px] aspect-[21/9] md:aspect-[16/7] overflow-hidden border border-foreground/10 bg-foreground/5"
+                        >
+                            <img
+                                src={project.imageUrl[1]}
+                                alt={project.title}
+                                className="w-full h-full object-cover"
+                            />
 
-                        <div className="absolute inset-0 bg-foreground/5 mix-blend-overlay pointer-events-none" />
-                    </motion.div>
+                            <div className="absolute inset-0 bg-foreground/5 mix-blend-overlay pointer-events-none" />
+                        </motion.div>
+                    ) : (
+                        <div className="flex flex-col gap-2 w-full">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.98 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                                className="relative w-full h-[296px] overflow-hidden border border-foreground/10 bg-foreground/5"
+                            >
+                                <img
+                                    src={project.imageUrl[1]}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover"
+                                />
 
+                                <div className="absolute inset-0 bg-foreground/5 mix-blend-overlay pointer-events-none" />
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.98 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                                className="relative w-full h-[296px] overflow-hidden border border-foreground/10 bg-foreground/5"
+                            >
+                                <img
+                                    src={project.imageUrl[2]}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover"
+                                />
+
+                                <div className="absolute inset-0 bg-foreground/5 mix-blend-overlay pointer-events-none" />
+                            </motion.div>
+                        </div>
+                    )}
                 </div>
 
             </motion.div>
