@@ -86,7 +86,7 @@ export const projects: ProjectData[] = [
   {
     id: "thunderblocks",
     title: "thunderblocks",
-    subtitle: "UI Components",
+    subtitle: "UI Component Blocks Website for eibiz",
     description: "A copy-paste UI gallery framework. Which you can browse Blocks (page-level sections) and Components (smaller reusable UI) by category, preview them live at desktop/tablet/mobile widths, switch to a Code tab, and copy the source straight into their own project.",
     technicalChallenge: "Developed a server-side dependency crawler that dynamically traces and packages local file imports for seamless source downloads. Resolved responsive iframe preview isolation challenges by synchronizing heights using browser font-loading events. Shifted syntax-highlighting processes entirely to Next.js Server Components to minimize client bundle sizes.",
     imageUrl: [
@@ -103,7 +103,7 @@ export const projects: ProjectData[] = [
       { name: "Shiki", category: "Frontend" },
     ],
     layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
-    link: "https://www.youtube.com/watch?v=TGgcC5xg9YI&list=RDTGgcC5xg9YI&start_radio=1",
+    link: "https://github.com/rdThunderThailand/thunder_blocks",
   },
   // {
   //   id: "pichpocket",
