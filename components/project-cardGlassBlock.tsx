@@ -21,7 +21,6 @@ interface ProjectCardProps {
 
 export function ProjectCardGB({ project, className }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const projectLink = project.link || project.liveUrl;
 
   // Physics-based spring config: Low damping for premium, heavy feel
   const springConfig = {
@@ -41,12 +40,12 @@ export function ProjectCardGB({ project, className }: ProjectCardProps) {
         // "dark:shadow-[7px_3px_15px_2px_rgba(251,146,60,0.4),_7px_3px_50px_10px_rgba(251,113,133,0.15)]",
         "dark:border border-foreground/40",
         "h-[80vw] sm:h-[360px] w-[80vw] sm:w-[360px]",
-        projectLink ? "cursor-pointer" : "cursor-default",
+        "cursor-pointer",
         className
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      whileHover={projectLink ? { scale: 0.98 } : {}}
+      whileHover={{ scale: 0.98 }}
       transition={springConfig}
     >
       {/* Background Image / Gradient */}
@@ -130,13 +129,9 @@ export function ProjectCardGB({ project, className }: ProjectCardProps) {
     </motion.div>
   );
 
-  if (projectLink) {
-    return (
-      <Link href={`/work/${project.id}`}>
-        {cardContent}
-      </Link>
-    );
-  }
-
-  return cardContent;
+  return (
+    <Link href={`/work/${project.id}`}>
+      {cardContent}
+    </Link>
+  );
 }

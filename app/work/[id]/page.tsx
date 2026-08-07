@@ -56,6 +56,39 @@ export default function WorkDetailsPage({ params }: ProjectDetailsPageProps) {
                                 Visit Project <ArrowUpRight className="w-4 h-4" />
                             </a>
                         )}
+                        {project.githublink && (
+                            <a
+                                href={project.githublink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                data-hide-cursor
+                                className="inline-flex items-center gap-2 text-sm font-medium border border-foreground/20 px-6 py-3 rounded-full hover:bg-yellow-500/80 hover:text-background transition-colors"
+                            >
+                                Github Repository <ArrowUpRight className="w-4 h-4" />
+                            </a>
+                        )}
+                        {project.FEgithublink && (
+                            <a
+                                href={project.FEgithublink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                data-hide-cursor
+                                className="inline-flex items-center gap-2 text-sm font-medium border border-foreground/20 px-6 py-3 rounded-full hover:bg-yellow-500/80 hover:text-background transition-colors"
+                            >
+                                Frontend Repository <ArrowUpRight className="w-4 h-4" />
+                            </a>
+                        )}
+                        {project.BEgithublink && (
+                            <a
+                                href={project.BEgithublink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                data-hide-cursor
+                                className="inline-flex items-center gap-2 text-sm font-medium border border-foreground/20 px-6 py-3 rounded-full hover:bg-yellow-500/80 hover:text-background transition-colors"
+                            >
+                                Backend Repository <ArrowUpRight className="w-4 h-4" />
+                            </a>
+                        )}
                     </div>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

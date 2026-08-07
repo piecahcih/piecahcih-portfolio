@@ -49,7 +49,9 @@ export const projects: ProjectData[] = [
       { name: "Railway", category: "Devops/Deployment" },
     ],
     layoutConfig: { colSpan: 8, rowSpan: 2 },
-    link: 'https://pichngo.vercel.app/'
+    link: 'https://pichngo.vercel.app/',
+    FEgithublink: "https://github.com/piecahcih/pichngo-frontend",
+    BEgithublink: "https://github.com/piecahcih/pichngo-backend",
   },
   {
     id: "onlyfriendssss",
@@ -80,8 +82,10 @@ export const projects: ProjectData[] = [
       { name: "Render", category: "Devops/Deployment" },
       { name: "Supabase", category: "Devops/Deployment" },
     ],
-    layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
+    layoutConfig: { colSpan: 4, rowSpan: 1 },
     link: "https://onlyfriendssss.vercel.app/",
+    FEgithublink: "https://github.com/piecahcih/onlyfriendssss-frontend",
+    BEgithublink: "https://github.com/piecahcih/onlyfriendssss-backend",
   },
   {
     id: "thunderblocks",
@@ -103,7 +107,7 @@ export const projects: ProjectData[] = [
       { name: "Shiki", category: "Frontend" },
     ],
     layoutConfig: { colSpan: 4, rowSpan: 1 }, // Takes up 4/12 cols
-    link: "https://github.com/rdThunderThailand/thunder_blocks",
+    githublink: "https://github.com/rdThunderThailand/thunder_blocks",
   },
   // {
   //   id: "pichpocket",

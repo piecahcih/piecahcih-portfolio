@@ -16,8 +16,9 @@ export interface ProjectData {
   technicalChallenge?: string;
   imageUrl: string[];
   link?: string;
-  liveUrl?: string;
-  repoUrl?: string;
+  FEgithublink?: string;
+  BEgithublink?: string;
+  githublink?: string;
   stack: TechStackItem[];
   layoutConfig?: {
     colSpan?: number; // e.g., for span-1, span-2 in bento grid
